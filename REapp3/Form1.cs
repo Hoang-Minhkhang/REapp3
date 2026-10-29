@@ -23,12 +23,12 @@ namespace REapp3
 		bool dangnhap = false;
 		private void button7_Click(object sender, EventArgs e)
 		{
-			tabControl1.SelectedIndex = 0; 
+			tabControl3.SelectedIndex = 0; 
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			tabControl1.SelectedIndex = 1;
+			tabControl3.SelectedIndex = 1;
 		}
 
 		private void button3_Click(object sender, EventArgs e)
@@ -60,13 +60,15 @@ namespace REapp3
 					{ "User1005", "DKhang" }
 					// DO NOT SHARE PRIVATE INFORMATION .
 				};
-				MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				string nickname;
 				if (!nicknames.TryGetValue(username, out nickname))
 					nickname = username;
 
 				// open forms with both username and nickname
-				
+				MainForm mainForm = new MainForm(username, nickname);
+				mainForm.Show();
+				MatKhau.Text = ""; 
+
 			}
 			else
 			{
@@ -101,6 +103,11 @@ namespace REapp3
 		private void button1_Click(object sender, EventArgs e)
 		{
 			this.Close(); 
+		}
+
+		private void button8_Click(object sender, EventArgs e)
+		{
+			tabControl3.SelectedIndex = 0; 
 		}
 	}
 }
