@@ -10,25 +10,23 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout source
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
 
-      - name: Restore packages
-        run: dotnet restore
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore NuGet packages
+        run: nuget restore REapp3.sln
 
       - name: Build
-        run: dotnet build -c Release
+        run: msbuild REapp3.sln /p:Configuration=Release
 
-      - name: Publish
-        run: dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true
-
-      - name: Upload artifact
+      - name: Upload Build
         uses: actions/upload-artifact@v4
         with:
           name: REapp3
-          path: '**/publish/*'
+          path: '**/bin/Release/*'

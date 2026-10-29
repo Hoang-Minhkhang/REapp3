@@ -3,6 +3,7 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8F7DBE1B-31D1-4C4C-9FDA-D02A3C3595B9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -101,5 +102,8 @@
   <ItemGroup>
     <Content Include="REapp3.ico" />
   </ItemGroup>
+<ItemGroup>
+  <PackageReference Include="System.Resources.Extensions" Version="4.7.0" />
+</ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
