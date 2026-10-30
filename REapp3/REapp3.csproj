@@ -100,6 +100,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="REapp3.ico" />
+    <None Include="Resources\Designer.png" />
+    <None Include="Resources\REApp3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
