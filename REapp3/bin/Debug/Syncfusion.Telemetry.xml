@@ -1,0 +1,993 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Syncfusion.Telemetry</name>
+    </assembly>
+    <members>
+        <member name="T:Syncfusion.Telemetry.AzureConnectionStringParser">
+            <summary>
+            Parses Azure Application Insights connection strings to extract
+            the instrumentation key and ingestion endpoint.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.AzureConnectionStringParser.InstrumentationKey">
+            <summary>
+            Gets the instrumentation key extracted from the connection string.
+            The key is stored without hyphens.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.AzureConnectionStringParser.IngestionEndpoint">
+            <summary>
+            Gets the ingestion endpoint URL for Azure Application Insights.
+            Defaults to https://dc.services.visualstudio.com if not specified
+            in the connection string but an instrumentation key is present.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.AzureConnectionStringParser.Parse(System.String)">
+            <summary>
+            Parses the specified Azure Application Insights connection string.
+            </summary>
+            <param name="connectionString">The connection string to parse.</param>
+            <returns><c>true</c> if the connection string contains a valid instrumentation key; otherwise, <c>false</c>.</returns>
+            <remarks>
+            Expected connection string format: "InstrumentationKey=key;IngestionEndpoint=https://endpoint.com"
+            </remarks>
+        </member>
+        <member name="T:Syncfusion.Telemetry.SdkName">
+            <summary>
+            Enumeration of valid Syncfusion SDK names.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.GridSDK">
+            <summary>Grid SDK for data visualization and manipulation.</summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.ChartSDK">
+            <summary>Chart SDK for creating various chart types.</summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.DiagramSDK">
+            <summary>Diagram SDK for creating and visualizing diagrams.</summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.RichTextEditorSDK">
+            <summary>Rich Text Editor SDK for text editing capabilities.</summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.FileManagerSDK">
+            <summary>File Manager SDK for file management operations.</summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.GanttSDK">
+            <summary>Gantt SDK for project management and scheduling.</summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.SchedulerSDK">
+            <summary>Scheduler SDK for appointment and event scheduling.</summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.SpreadsheetEditorSDK">
+            <summary>Spreadsheet Editor SDK for spreadsheet operations.</summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.DOCXEditorSDK">
+            <summary>DOCX Editor SDK for document editing.</summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.PDFViewerSDK">
+            <summary>PDF Viewer SDK for viewing PDF documents.</summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.SdkName.DocumentSDK">
+            <summary>Document SDK for document-related operations.</summary>
+        </member>
+        <member name="T:Syncfusion.Telemetry.HttpTelemetrySender">
+            <summary>
+            HTTP-based telemetry sender that sends telemetry events to Azure Application Insights.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.HttpTelemetrySender._options">
+            <summary>
+            The telemetry configuration options.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.HttpTelemetrySender._httpClient">
+            <summary>
+            The HTTP client used for sending telemetry data.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.HttpTelemetrySender._requestUri">
+            <summary>
+            The URI endpoint for telemetry ingestion.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.HttpTelemetrySender._instrumentationKey">
+            <summary>
+            The instrumentation key for Azure Application Insights.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.HttpTelemetrySender.#ctor(Syncfusion.Telemetry.TelemetryOptions,System.Net.Http.HttpClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Telemetry.HttpTelemetrySender"/> class.
+            </summary>
+            <param name="options">The telemetry options containing connection and configuration details.</param>
+            <param name="httpClient">The HTTP client to use for sending requests. If null, a default client will be created.</param>
+        </member>
+        <member name="M:Syncfusion.Telemetry.HttpTelemetrySender.#ctor(Syncfusion.Telemetry.TelemetryOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Telemetry.HttpTelemetrySender"/> class with default HTTP client.
+            </summary>
+            <param name="options">The telemetry options containing connection and configuration details.</param>
+            <remarks>
+            This overload creates a default HTTP client for sending telemetry.
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Telemetry.HttpTelemetrySender.SendAsync(Syncfusion.Telemetry.TelemetryBatch,System.Threading.CancellationToken)">
+            <summary>
+            Sends a batch of telemetry events to Application Insights asynchronously.
+            </summary>
+            <param name="batch">The telemetry batch containing events to send.</param>
+            <param name="cancellationToken">A cancellation token to cancel the operation.</param>
+            <returns>A task representing the asynchronous operation.</returns>
+            <remarks>
+            All exceptions are silently caught to ensure telemetry failures never impact the application.
+            Uses a fast timeout to quickly detect network unavailability without blocking.
+            Cross-platform compatible with Blazor, MAUI, WinUI, .NET Core, etc.
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Telemetry.HttpTelemetrySender.CreateContent(System.String)">
+            <summary>
+            Creates the HTTP content for the request, optionally applying GZIP compression.
+            </summary>
+            <param name="json">The JSON payload to send.</param>
+            <returns>The HTTP content with appropriate headers.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.HttpTelemetrySender.BuildFallbackUri(System.String)">
+            <summary>
+            Builds the fallback ingestion URI using the default endpoint.
+            </summary>
+            <param name="endpoint">The endpoint URL. If null or empty, uses the default Application Insights endpoint.</param>
+            <returns>The absolute URI for the track endpoint.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.HttpTelemetrySender.BuildIngestionUri(System.String)">
+            <summary>
+            Builds the ingestion URI from the Azure connection string endpoint.
+            </summary>
+            <param name="ingestionEndpoint">The ingestion endpoint from the connection string.</param>
+            <returns>The absolute URI for the track endpoint.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.HttpTelemetrySender.CreateApplicationInsightsPayload(Syncfusion.Telemetry.TelemetryBatch)">
+            <summary>
+            Creates the Application Insights payload from a telemetry batch.
+            </summary>
+            <param name="batch">The telemetry batch containing events.</param>
+            <returns>A list of Application Insights envelopes ready for serialization.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.HttpTelemetrySender.CreateApplicationInsightsEvent(Syncfusion.Telemetry.TelemetryEvent,Syncfusion.Telemetry.TelemetryBatch)">
+            <summary>
+            Creates a single Application Insights envelope from a telemetry event.
+            </summary>
+            <param name="telemetryEvent">The telemetry event to convert.</param>
+            <param name="batch">The parent batch containing context information.</param>
+            <returns>An Application Insights envelope with event data.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.HttpTelemetrySender.AddProperty(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String)">
+            <summary>
+            Adds a property to the dictionary if the value is not null or whitespace.
+            </summary>
+            <param name="properties">The dictionary to add the property to.</param>
+            <param name="key">The property key.</param>
+            <param name="value">The property value.</param>
+        </member>
+        <member name="T:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEnvelope">
+            <summary>
+            Represents the envelope structure for Application Insights telemetry.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEnvelope.Name">
+            <summary>
+            Gets or sets the name of the envelope.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEnvelope.Time">
+            <summary>
+            Gets or sets the timestamp of the telemetry event.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEnvelope.InstrumentationKey">
+            <summary>
+            Gets or sets the instrumentation key for Application Insights.
+            Serialized as "iKey" in the JSON payload.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEnvelope.Tags">
+            <summary>
+            Gets or sets the telemetry tags for context information.
+            Omitted from the JSON payload when null.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEnvelope.Data">
+            <summary>
+            Gets or sets the telemetry data payload.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsTelemetryData">
+            <summary>
+            Represents the telemetry data wrapper for Application Insights.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsTelemetryData.BaseType">
+            <summary>
+            Gets or sets the base type of the telemetry data.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsTelemetryData.BaseData">
+            <summary>
+            Gets or sets the base data payload.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEventData">
+            <summary>
+            Represents the event data structure for Application Insights.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEventData.Name">
+            <summary>
+            Gets or sets the name of the event.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEventData.Properties">
+            <summary>
+            Gets or sets the dictionary of event properties.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Telemetry.InstallationIdProvider">
+            <summary>
+            Provides a unique, persistent, and hashed installation ID for telemetry tracking.
+            The installation ID is stored locally and hashed using SHA256.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.InstallationIdProvider.Value">
+            <summary>
+            Lazy-initialized value containing the hashed installation ID.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.InstallationIdProvider.Get">
+            <summary>
+            Gets the hashed installation ID, creating and persisting it if necessary.
+            </summary>
+            <returns>The hashed installation ID.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.InstallationIdProvider.Create">
+            <summary>
+            Creates a new installation ID, persists it to disk, and returns the hashed value.
+            If an existing installation ID is found, it is loaded and hashed.
+            </summary>
+            <returns>The hashed installation ID.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.InstallationIdProvider.Hash(System.String)">
+            <summary>
+            Hashes the given value using SHA256 and returns the Base64 encoded result.
+            </summary>
+            <param name="value">The value to hash.</param>
+            <returns>The Base64 encoded SHA256 hash of the value.</returns>
+        </member>
+        <member name="T:Syncfusion.Telemetry.ITelemetrySender">
+            <summary>
+            Interface for sending telemetry batches to a remote server.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.ITelemetrySender.SendAsync(Syncfusion.Telemetry.TelemetryBatch,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously sends a batch of telemetry events to the server.
+            </summary>
+            <param name="batch">The telemetry batch to send.</param>
+            <param name="cancellationToken">A cancellation token to cancel the operation.</param>
+            <returns>A task representing the asynchronous send operation.</returns>
+        </member>
+        <member name="T:Syncfusion.Telemetry.Telemetry">
+            <summary>
+            Provides methods and properties for managing telemetry tracking in Syncfusion applications.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.Telemetry.Lock">
+            <summary>
+            A lock object used to ensure thread-safety when accessing or modifying the telemetry client.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.Telemetry._client">
+            <summary>
+            The underlying telemetry client instance used for tracking telemetry data.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.Telemetry.IsTelemetryEnabled">
+            <summary>
+            Gets or sets a value indicating whether telemetry tracking is enabled.
+            </summary>
+            <value><c>true</c> if telemetry is enabled; otherwise, <c>false</c>. The default value is <c>true</c>.</value>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.Disable">
+            <summary>
+            Disables telemetry tracking for the application.
+            </summary>
+            <remarks>
+            When called, this method sets <see cref="P:Syncfusion.Telemetry.Telemetry.IsTelemetryEnabled"/> to <c>false</c>, preventing
+            any further telemetry data from being collected or sent.
+            </remarks>
+            <example>
+            The following example demonstrates how to disable telemetry:
+            <code lang="csharp">
+            Telemetry.Disable();
+            </code>
+            </example>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.Configure(Syncfusion.Telemetry.TelemetryOptions)">
+            <summary>
+            Configures the telemetry client with the specified options.
+            </summary>
+            <param name="options"> <see cref="T:Syncfusion.Telemetry.TelemetryOptions"/>.</param>
+            <remarks>
+            This method creates a new <see cref="T:Syncfusion.Telemetry.TelemetryClient"/> instance with the provided options.
+            If a client already exists, it will be disposed and replaced. This method is thread-safe.
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.TrackComponent(Syncfusion.Telemetry.ComponentName,Syncfusion.Telemetry.TelemetryOptions)">
+            <summary>
+            Tracks the usage of a component in the application.
+            </summary>
+            <param name="componentName">The name of the component being tracked.</param>
+            <remarks>
+            This method records when a specific component is used and automatically flushes
+            the telemetry data asynchronously after tracking. Exceptions during tracking or
+            flushing are silently caught and ignored.
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.LogTelemetryAsync">
+            <summary>
+            Asynchronously logs and flushes the telemetry data.
+            </summary>
+            <returns>A task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.ShouldWaitForTelemetryFlush">
+            <summary>
+            Determines whether telemetry flushes should be waited on synchronously.
+            </summary>
+            <remarks>
+            UI applications such as .NET MAUI can deadlock when blocking on the UI thread,
+            so we avoid synchronous waiting when a synchronization context is present.
+            Blazor WebAssembly doesn't support blocking operations at all.
+            Console and background-thread scenarios continue to block so telemetry can be sent
+            before the process exits.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Telemetry.Telemetry.DesignMode">
+            <summary>
+            Get the Visual Studio is runing. 
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.IsLinux">
+            <summary>
+            Checks the environment is IsLinux. 
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.IsDesigner">
+            <summary>
+            Check the Designing mode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.IsDesignerMode">
+            <summary>
+            Detects XAML designer mode.
+            Supported designer processes:
+            - xdesproc, devenv (Visual Studio)
+            - wpfsurface, designtoolsserver (VS 2022)
+            - riderwpfpreviewerlauncher (JetBrains Rider)
+            For "dotnet" processes, excludes test runners by checking for
+            loaded test runner assemblies (e.g. ReSharper, dotCover).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.IsTestRunnerContext">
+            <summary>
+            Detects whether the current process is a unit test runner (VS Test Explorer,
+            ReSharper, dotCover, etc.) by checking loaded assemblies in the AppDomain.
+            </summary>
+            <returns>true when a known test framework assembly is loaded.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.IsRunningOnWebAssembly">
+            <summary>
+            Checks if the application is running on Blazor WebAssembly.
+            </summary>
+            <returns>True if running on WebAssembly, false otherwise.</returns>
+            <remarks>
+            Compatible with .NET 6, 7, 8, 9, 10 and future versions.
+            Uses multiple detection methods for maximum reliability.
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.TrackFeature(System.String,Syncfusion.Telemetry.ComponentName,Syncfusion.Telemetry.TelemetryOptions)">
+            <summary>
+            Tracks the usage of a feature in the application.
+            </summary>
+            <param name="featureName">The name of the feature being tracked.</param>
+            <param name="componentName">The component associated with the feature.</param>
+            <param name="options">The telemetry options to configure the client.</param>
+            <remarks>
+            This method records when a specific feature is used. Exceptions during tracking
+            are silently caught and ignored.
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.FlushAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously flushes the telemetry data to the server.
+            </summary>
+            <param name="cancellationToken">A cancellation token that can be used to cancel the operation.</param>
+            <returns>A task that represents the asynchronous flush operation.</returns>
+            <internal/>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.FlushAsync">
+            <summary>
+            Asynchronously flushes the telemetry data to the server using the default cancellation token.
+            </summary>
+            <returns>A task that represents the asynchronous flush operation.</returns>
+            <internal/>
+        </member>
+        <member name="M:Syncfusion.Telemetry.Telemetry.Shutdown">
+            <summary>
+            Shuts down the telemetry client and releases all resources.
+            </summary>
+            <remarks>
+            This method disposes the current <see cref="T:Syncfusion.Telemetry.TelemetryClient"/> instance and sets it to <c>null</c>.
+            This method is thread-safe.
+            </remarks>
+            <internal/>
+        </member>
+        <member name="T:Syncfusion.Telemetry.TelemetryBatch">
+            <summary>
+            Represents a batch of telemetry events to be sent to the server.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryBatch.SchemaVersion">
+            <summary>
+            Gets or sets the schema version of the batch format.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryBatch.SdkVersion">
+            <summary>
+            Gets or sets the SDK version associated with this batch.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryBatch.SessionId">
+            <summary>
+            Gets or sets the hashed session ID for this batch.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryBatch.InstallationId">
+            <summary>
+            Gets or sets the hashed installation ID for this batch.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryBatch.CreatedAt">
+            <summary>
+            Gets or sets the timestamp when the batch was created.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryBatch.Events">
+            <summary>
+            Gets or sets the collection of telemetry events in this batch.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Telemetry.TelemetryClient">
+            <summary>
+            Manages telemetry event collection, queuing, and transmission.
+            Handles batching, deduplication, and retry logic for telemetry events.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetryClient._options">
+            <summary>
+            Configuration options for telemetry collection.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetryClient._sender">
+            <summary>
+            The sender responsible for transmitting telemetry data.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetryClient._queue">
+            <summary>
+            Queue for pending telemetry events to be sent.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetryClient._sessionDedup">
+            <summary>
+            Set of hashed deduplication keys for session-level deduplication.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetryClient._dailyDedup">
+            <summary>
+            Set of hashed deduplication keys for daily-level deduplication.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetryClient._dedupLock">
+            <summary>
+            Lock object for thread-safe deduplication operations.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetryClient._timer">
+            <summary>
+            Timer for periodic flushing of queued telemetry events.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetryClient._sessionId">
+            <summary>
+            The hashed session ID for this telemetry client instance.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetryClient._isFlushing">
+            <summary>
+            Flag to prevent concurrent flush operations.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetryClient._disposed">
+            <summary>
+            Flag indicating whether this instance has been disposed.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryClient.#ctor(Syncfusion.Telemetry.TelemetryOptions,System.Net.Http.HttpClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Telemetry.TelemetryClient"/> class.
+            </summary>
+            <param name="options">The telemetry configuration options.</param>
+            <param name="httpClient">The HTTP client to use for sending telemetry. If null, a new instance will be created.</param>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryClient.#ctor(Syncfusion.Telemetry.TelemetryOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Telemetry.TelemetryClient"/> class with a default HTTP client.
+            </summary>
+            <param name="options">The telemetry configuration options.</param>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryClient.TrackComponent(Syncfusion.Telemetry.ComponentName)">
+            <summary>
+            Tracks the initialization or usage of a component.
+            </summary>
+            <param name="componentName">The name of the component to track.</param>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryClient.TrackFeature(Syncfusion.Telemetry.ComponentName,System.String)">
+            <summary>
+            Tracks the usage of a feature.
+            </summary>
+            <param name="featureName">The name of the feature to track.</param>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryClient.FlushAsync">
+            <summary>
+            Asynchronously flushes all pending telemetry events with no cancellation token.
+            </summary>
+            <returns>A task representing the asynchronous flush operation.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryClient.FlushAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously flushes all pending telemetry events.
+            </summary>
+            <param name="cancellationToken">A cancellation token to cancel the flush operation.</param>
+            <returns>A task representing the asynchronous flush operation.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryClient.FormatSdkVersion(System.String)">
+            <summary>
+            Formats the SDK version by removing the revision digit (4th digit) and extracting semantic versioning.
+            Converts versions like "34.2.2.0" to "34.2.2" and handles cases where framework info is embedded
+            (e.g., "34.2462.5" for .NET 4.62 framework becomes "34.2.5").
+            </summary>
+            <param name="version">The version string (e.g., "34.2.2.0", "34.2462.5").</param>
+            <returns>The formatted semantic version (e.g., "34.2.2"), or the original version if formatting fails.</returns>
+        </member>
+        <member name="T:Syncfusion.Telemetry.TelemetryEnvironmentDetector">
+            <summary>
+            Detects the runtime environment (Development, Production, CI, etc.) for telemetry classification.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryEnvironmentDetector.GetEnvironment">
+            <summary>
+            Detects the current environment at runtime.
+            </summary>
+            <returns>Environment name: "CI", "AutomatedTests", "Development", "Production", or "Unknown"</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryEnvironmentDetector.IsCIEnvironment">
+            <summary>
+            Detects if running in a CI/CD environment.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryEnvironmentDetector.IsAutomatedTestEnvironment">
+            <summary>
+            Detects if running in an automated test environment.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryEnvironmentDetector.IsHostedEnvironment">
+            <summary>
+            Detects if running in a hosted/server environment.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Telemetry.TelemetryEvent">
+            <summary>
+            Represents a single telemetry event containing product usage information.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.EventName">
+            <summary>
+            Gets or sets the name of the event.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.Timestamp">
+            <summary>
+            Gets or sets the timestamp when the event occurred.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.InstallationId">
+            <summary>
+            Gets or sets the hashed installation ID.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.SessionId">
+            <summary>
+            Gets or sets the hashed session ID.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.SdkName">
+            <summary>
+            Gets or sets the name of the SDK that generated this event.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.PlatformName">
+            <summary>
+            Gets or sets the name of the platform.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.SdkVersion">
+            <summary>
+            Gets or sets the version of the SDK.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.ComponentName">
+            <summary>
+            Gets or sets the name of the component being tracked.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.FeatureName">
+            <summary>
+            Gets or sets the name of the feature being tracked.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.Framework">
+            <summary>
+            Gets or sets the framework information.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.FrameworkVersion">
+            <summary>
+            Gets or sets the framework version.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.Environment">
+            <summary>
+            Gets or sets the environment in which the event occurred.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.LicenseCategory">
+            <summary>
+            Gets or sets the license category.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.Priority">
+            <summary>
+            Gets or sets the priority level of the event.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.MachineName">
+            <summary>
+            Gets or sets the hashed machine name.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.SessionDedupKey">
+            <summary>
+            Gets the deduplication key for session-level duplicate detection.
+            </summary>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryEvent.DailyDedupKey">
+            <summary>
+            Gets the deduplication key for daily-level duplicate detection.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Telemetry.TelemetryJson">
+            <summary>
+            Provides lightweight JSON serialization for Application Insights telemetry payloads
+            without any external package dependency.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryJson.Serialize(System.Collections.Generic.IList{Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEnvelope})">
+            <summary>
+            Serializes a list of <see cref="T:Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEnvelope"/> items
+            to a compact JSON string that matches the Application Insights ingestion format.
+            </summary>
+            <param name="envelopes">The envelope list produced by <c>CreateApplicationInsightsPayload</c>.</param>
+            <returns>A JSON array string, or <c>"[]"</c> when the list is null or empty.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryJson.WriteEnvelope(System.Text.StringBuilder,Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEnvelope)">
+            <summary>
+            Writes a single envelope object.
+            Guards against null <c>Data</c> to prevent NullReferenceException.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryJson.WriteData(System.Text.StringBuilder,Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsTelemetryData)">
+            <summary>
+            Writes the "data" wrapper object.
+            Guards against null <c>BaseData</c>.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryJson.WriteBaseData(System.Text.StringBuilder,Syncfusion.Telemetry.HttpTelemetrySender.ApplicationInsightsEventData)">
+            <summary>
+            Writes the "baseData" object.
+            Includes the required "ver":2 field that Application Insights expects
+            for all EventData payloads, regardless of connection string variant.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryJson.WriteStringDictionary(System.Text.StringBuilder,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Writes a JSON object field whose value is a string-to-string dictionary.
+            Skips entries with a null key.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryJson.WriteString(System.Text.StringBuilder,System.String,System.String)">
+            <summary>
+            Writes a single JSON string field: <c>"key":"value"</c>.
+            A null <paramref name="value"/> is written as an empty string.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryJson.AppendEscaped(System.Text.StringBuilder,System.String)">
+            <summary>
+            Appends a JSON-escaped version of <paramref name="s"/> to <paramref name="sb"/>.
+            Handles all control characters and escape sequences required by RFC 8259 §7.
+            A null <paramref name="s"/> is treated as an empty string.
+            </summary>
+        </member>
+        <member name="T:Syncfusion.Telemetry.TelemetryOptions">
+            <summary>
+            Provides configuration options for Syncfusion Telemetry.
+            </summary>
+            <remarks>
+            This class contains all configurable properties for telemetry collection and delivery.
+            Default values are set in the constructor.
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryOptions.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Syncfusion.Telemetry.TelemetryOptions"/> class with default settings.
+            </summary>
+            <remarks>
+            Default values include: telemetry enabled, gzip compression enabled,
+            batch size of 25 events, batch interval of 60 seconds, and more.
+            </remarks>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.Enabled">
+            <summary>
+            Gets or sets a value indicating whether telemetry is enabled.
+            </summary>
+            <value><c>true</c> if telemetry is enabled; otherwise, <c>false</c>. Default is <c>true</c>.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.ConnectionString">
+            <summary>
+            Gets or sets the Azure Application Insights connection string.
+            </summary>
+            <value>The connection string containing instrumentation key and ingestion endpoint.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.Endpoint">
+            <summary>
+            Gets or sets the fallback endpoint for telemetry data when no connection string is provided.
+            </summary>
+            <value>The telemetry endpoint URL. Default is "https://dc.services.visualstudio.com".</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.SdkName">
+            <summary>
+            Gets or sets the name of the SDK sending telemetry.
+            </summary>
+            <value>The SDK name, such as "Syncfusion.Telemetry".</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.SdkVersion">
+            <summary>
+            Gets or sets the version of the SDK sending telemetry.
+            </summary>
+            <value>The SDK version string.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.PlatformName">
+            <summary>
+            Gets or sets the name of the Platform sending telemetry.
+            </summary>
+            <value>The Platform Name string.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.ServiceName">
+            <summary>
+            Gets or sets the name of the service sending telemetry.
+            </summary>
+            <value>The service name.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.ServiceVersion">
+            <summary>
+            Gets or sets the version of the service sending telemetry.
+            </summary>
+            <value>The service version.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.Framework">
+            <summary>
+            Gets or sets the framework being used (e.g., .NET, .NET Core).
+            </summary>
+            <value>The framework name.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.FrameworkVersion">
+            <summary>
+            Gets or sets the version of the framework being used.
+            </summary>
+            <value>The framework version.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.OperatingSystem">
+            <summary>
+            Gets or sets the operating system description.
+            </summary>
+            <value>The OS description, such as "Windows 10" or "Linux 5.4.0".</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.Architecture">
+            <summary>
+            Gets or sets the processor architecture in lowercase format.
+            </summary>
+            <remarks>
+            Returns the processor architecture as lowercase:
+            - "x86" for 32-bit Intel/AMD
+            - "x64" for 64-bit Intel/AMD
+            - "arm" for 32-bit ARM
+            - "arm64" for 64-bit ARM
+            - "wasm" for WebAssembly (.NET 6.0+)
+            </remarks>
+            <value>The architecture in lowercase format (e.g., "x64", "x86", "arm64", "wasm").</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.EnvironmentName">
+            <summary>
+            Gets or sets the environment name (e.g., Development, Production).
+            </summary>
+            <value>The environment name.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.MaxQueueSize">
+            <summary>
+            Gets or sets the maximum number of events to hold in the queue.
+            </summary>
+            <value>The maximum queue size. Default is 250.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.BatchSize">
+            <summary>
+            Gets or sets the number of events to send in each batch.
+            </summary>
+            <value>The batch size. Default is 25.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.BatchInterval">
+            <summary>
+            Gets or sets the interval at which to send batches of telemetry events.
+            </summary>
+            <value>The batch interval. Default is 60 seconds.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.RequestTimeout">
+            <summary>
+            Gets or sets the timeout for individual HTTP requests.
+            </summary>
+            <value>The request timeout. Default is 120 seconds.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.MaxRetries">
+            <summary>
+            Gets or sets the maximum number of retry attempts for failed requests.
+            </summary>
+            <value>The maximum retry count. Default is 2.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.EnableGzip">
+            <summary>
+            Gets or sets a value indicating whether to enable GZIP compression for HTTP requests.
+            </summary>
+            <value><c>true</c> to enable GZIP compression; otherwise, <c>false</c>. Default is <c>true</c>.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.ProductionNoOpByDefault">
+            <summary>
+            Gets or sets a value indicating whether to default to no-op in production environments.
+            </summary>
+            <value><c>true</c> to enable production no-op by default; otherwise, <c>false</c>. Default is <c>true</c>.</value>
+        </member>
+        <member name="P:Syncfusion.Telemetry.TelemetryOptions.AssemblyName">
+            <summary>
+            Gets or sets the name of the assembly sending telemetry.
+            </summary>
+            <value>The assembly name.</value>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryOptions.GetServiceName">
+            <summary>
+            Gets the name of the service/application using the telemetry SDK.
+            </summary>
+            <returns>The service name from the entry assembly, or the app domain name if unavailable.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryOptions.GetServiceVersion">
+            <summary>
+            Gets the version of the service/application using the telemetry SDK.
+            </summary>
+            <returns>The service version, or "unknown" if unavailable.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryOptions.GetOSPlatform">
+            <summary>
+            Gets the OS platform name
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetryOptions.IsWebAssembly">
+            <summary>
+            Detects if the current runtime is WebAssembly (browser-based).
+            </summary>
+            <returns><c>true</c> if running in a WebAssembly environment; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:Syncfusion.Telemetry.TelemetrySanitizer">
+            <summary>
+            Provides sanitization methods for telemetry data to ensure data quality and privacy.
+            </summary>
+        </member>
+        <member name="F:Syncfusion.Telemetry.TelemetrySanitizer.MaxNameLength">
+            <summary>
+            Maximum allowed length for sanitized names.
+            </summary>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetrySanitizer.SafeName(System.String)">
+            <summary>
+            Sanitizes a name by removing unsafe characters and truncating if necessary.
+            Only alphanumeric characters, underscores, hyphens, and dots are allowed.
+            </summary>
+            <param name="value">The name to sanitize.</param>
+            <returns>The sanitized name, or "Unknown" if the input is null, empty, or contains no valid characters.</returns>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetrySanitizer.ExtractFrameworkName(System.String)">
+            <summary>
+            Extracts the framework name from the full framework description.
+            Removes version information to get just the framework type.
+            </summary>
+            <param name="frameworkDescription">The full framework description (e.g., ".NET 10.0.0.1" or ".NET Framework 4.8.1").</param>
+            <returns>The framework name without version (e.g., ".NET" or ".NET Framework"), or "Unknown" if input is invalid.</returns>
+            <remarks>
+            Examples:
+            - ".NET 10.0.0.1" → ".NET"
+            - ".NET Framework 4.8.1" → ".NET Framework"
+            - ".NET 5.0.10" → ".NET"
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetrySanitizer.FormatSdkName(System.String)">
+            <summary>
+            Normalizes an SDK name by removing all spaces.
+            Converts "Chart SDK" to "ChartSDK", keeps "DocumentSDK" as "DocumentSDK", etc.
+            </summary>
+            <param name="sdkName">The SDK name to normalize.</param>
+            <returns>The normalized SDK name without spaces, or the original value if null/empty.</returns>
+            <remarks>
+            Removes all spaces from the SDK name to ensure consistent formatting.
+            Examples:
+            - "DocumentSDK" → "DocumentSDK"
+            - "GridSDK" → "GridSDK"
+            - "Chart SDK" → "ChartSDK"
+            - "My Custom SDK" → "MyCustomSDK"
+            </remarks>
+        </member>
+        <member name="M:Syncfusion.Telemetry.TelemetrySanitizer.ValidateAndNormalizeSdkName(System.String)">
+             <summary>
+             Validates and normalizes an SDK name against the list of valid Syncfusion SDK names.
+             Handles variations like "Chart SDK", "ChartsSDK", "Charts SDK" and maps them to "ChartSDK".
+             </summary>
+             <param name="sdkName">The SDK name to validate and normalize.</param>
+             <returns>The valid normalized SDK name if a match is found; otherwise, returns the formatted input SDK name for reporting.</returns>
+             <remarks>
+             Valid SDK names are:
+             - GridSDK
+             - ChartSDK
+             - DiagramSDK
+             - RichTextEditorSDK
+             - FileManagerSDK
+             - GanttSDK
+             - SchedulerSDK
+             - SpreadsheetEditorSDK
+             - DOCXEditorSDK
+             - PDFViewerSDK
+             - DocumentSDK
+            
+             Examples:
+             - "Chart SDK" → "ChartSDK" (valid)
+             - "Charts SDK" → "ChartSDK" (corrected from typo)
+             - "ChartSDK" → "ChartSDK" (valid)
+             - "DOCX Editor SDK" → "DOCXEditorSDK" (valid)
+             </remarks>
+        </member>
+    </members>
+</doc>

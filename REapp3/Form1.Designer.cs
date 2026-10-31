@@ -46,11 +46,15 @@
 			this.tabControl3 = new System.Windows.Forms.TabControl();
 			this.tabPage5 = new System.Windows.Forms.TabPage();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.button3 = new System.Windows.Forms.Button();
 			this.MatKhau = new System.Windows.Forms.MaskedTextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.TaiKhoan = new System.Windows.Forms.MaskedTextBox();
 			this.label3 = new System.Windows.Forms.Label();
+			this.tabPage7 = new System.Windows.Forms.TabPage();
+			this.button8 = new System.Windows.Forms.Button();
+			this.richTextBox3 = new System.Windows.Forms.RichTextBox();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.button6 = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
@@ -59,27 +63,23 @@
 			this.đăngNhậpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.object_f6cbecb8_5cb6_4138_8ff4_fb09637eac84 = new System.Windows.Forms.Button();
 			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
 			this.button7 = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tabPage6 = new System.Windows.Forms.TabPage();
-			this.tabPage7 = new System.Windows.Forms.TabPage();
-			this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-			this.button8 = new System.Windows.Forms.Button();
 			this.tabControl2.SuspendLayout();
 			this.tabPage2.SuspendLayout();
 			this.tabControl3.SuspendLayout();
 			this.tabPage5.SuspendLayout();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.tabPage7.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tabPage6.SuspendLayout();
-			this.tabPage7.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// dùngChùaToolStripMenuItem
@@ -251,6 +251,16 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "REapp3  Sign in";
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(199, 40);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(118, 113);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.pictureBox1.TabIndex = 18;
+			this.pictureBox1.TabStop = false;
+			// 
 			// button3
 			// 
 			this.button3.BackColor = System.Drawing.Color.Lime;
@@ -299,6 +309,38 @@
 			this.label3.Size = new System.Drawing.Size(96, 20);
 			this.label3.TabIndex = 3;
 			this.label3.Text = "Username ";
+			// 
+			// tabPage7
+			// 
+			this.tabPage7.Controls.Add(this.button8);
+			this.tabPage7.Controls.Add(this.richTextBox3);
+			this.tabPage7.Location = new System.Drawing.Point(4, 22);
+			this.tabPage7.Name = "tabPage7";
+			this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage7.Size = new System.Drawing.Size(519, 269);
+			this.tabPage7.TabIndex = 1;
+			this.tabPage7.Text = "tabPage7";
+			this.tabPage7.UseVisualStyleBackColor = true;
+			// 
+			// button8
+			// 
+			this.button8.BackColor = System.Drawing.Color.GreenYellow;
+			this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.button8.Location = new System.Drawing.Point(6, 240);
+			this.button8.Name = "button8";
+			this.button8.Size = new System.Drawing.Size(507, 23);
+			this.button8.TabIndex = 1;
+			this.button8.Text = "I accept with the license";
+			this.button8.UseVisualStyleBackColor = false;
+			this.button8.Click += new System.EventHandler(this.button8_Click);
+			// 
+			// richTextBox3
+			// 
+			this.richTextBox3.Location = new System.Drawing.Point(6, 6);
+			this.richTextBox3.Name = "richTextBox3";
+			this.richTextBox3.Size = new System.Drawing.Size(507, 224);
+			this.richTextBox3.TabIndex = 0;
+			this.richTextBox3.Text = resources.GetString("richTextBox3.Text");
 			// 
 			// tabPage1
 			// 
@@ -380,16 +422,6 @@
 			this.tabControl1.Size = new System.Drawing.Size(541, 327);
 			this.tabControl1.TabIndex = 7;
 			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(199, 40);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(118, 113);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.pictureBox1.TabIndex = 18;
-			this.pictureBox1.TabStop = false;
-			// 
 			// object_f6cbecb8_5cb6_4138_8ff4_fb09637eac84
 			// 
 			this.object_f6cbecb8_5cb6_4138_8ff4_fb09637eac84.BackColor = System.Drawing.Color.LightGreen;
@@ -451,38 +483,6 @@
 			this.tabPage6.Text = "tabPage6";
 			this.tabPage6.UseVisualStyleBackColor = true;
 			// 
-			// tabPage7
-			// 
-			this.tabPage7.Controls.Add(this.button8);
-			this.tabPage7.Controls.Add(this.richTextBox3);
-			this.tabPage7.Location = new System.Drawing.Point(4, 22);
-			this.tabPage7.Name = "tabPage7";
-			this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage7.Size = new System.Drawing.Size(519, 269);
-			this.tabPage7.TabIndex = 1;
-			this.tabPage7.Text = "tabPage7";
-			this.tabPage7.UseVisualStyleBackColor = true;
-			// 
-			// richTextBox3
-			// 
-			this.richTextBox3.Location = new System.Drawing.Point(6, 6);
-			this.richTextBox3.Name = "richTextBox3";
-			this.richTextBox3.Size = new System.Drawing.Size(507, 224);
-			this.richTextBox3.TabIndex = 0;
-			this.richTextBox3.Text = resources.GetString("richTextBox3.Text");
-			// 
-			// button8
-			// 
-			this.button8.BackColor = System.Drawing.Color.GreenYellow;
-			this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.button8.Location = new System.Drawing.Point(6, 240);
-			this.button8.Name = "button8";
-			this.button8.Size = new System.Drawing.Size(507, 23);
-			this.button8.TabIndex = 1;
-			this.button8.Text = "I accept with the license";
-			this.button8.UseVisualStyleBackColor = false;
-			this.button8.Click += new System.EventHandler(this.button8_Click);
-			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,6 +495,7 @@
 			this.Name = "Form1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Reapp3 - SIGN IN ";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
 			this.tabControl2.ResumeLayout(false);
@@ -503,14 +504,14 @@
 			this.tabPage5.ResumeLayout(false);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.tabPage7.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.tabControl1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tabPage6.ResumeLayout(false);
-			this.tabPage7.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

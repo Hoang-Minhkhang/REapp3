@@ -67,7 +67,10 @@ namespace REapp3
 				// open forms with both username and nickname
 				MainForm mainForm = new MainForm(username, nickname);
 				mainForm.Show();
-				MatKhau.Text = ""; 
+				MatKhau.Text = "";
+				Form2 form2 = new Form2(username, nickname, TruyenForm2);
+				form2.Show();
+				this.Hide(); 
 
 			}
 			else
@@ -108,6 +111,11 @@ namespace REapp3
 		private void button8_Click(object sender, EventArgs e)
 		{
 			tabControl3.SelectedIndex = 0; 
+		}
+
+		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			this.Close(); 
 		}
 	}
 }

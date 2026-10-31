@@ -16,6 +16,7 @@ namespace REapp3
 	{
 		private string _username;
 		public string _nickname { get; set; }
+		private string TruyenForm2 = "";	
 		private bool ok = true; 
 		public MainForm(string username, string nickname)
 		{
@@ -83,6 +84,35 @@ namespace REapp3
 					MessageBox.Show("Thời khóa biểu đã hết hạn , vui lòng liên hệ quản trị viên để được cấp lại ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				}
 			}
+		}
+
+		private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			this.Close(); 
+		}
+
+		private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			Form1 form1 = new Form1();
+			form1.Show();
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			Form2 form2 = new Form2(_username, _nickname, TruyenForm2);
+			form2.Show();
+		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			Windows2 windows2 = new Windows2(_username);
+			windows2.Show(); 
 		}
 	}
 }
