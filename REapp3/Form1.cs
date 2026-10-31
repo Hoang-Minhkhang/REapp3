@@ -115,7 +115,7 @@ namespace REapp3
 
 		private void Form1_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			this.Close(); 
+			
 		}
 	}
 }

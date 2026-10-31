@@ -17,15 +17,18 @@ namespace REapp3
 		private string _username;
 		public string _nickname { get; set; }
 		private string TruyenForm2 = "";	
-		private bool ok = true; 
+		private bool ok = true;
+		private int windows2choice = 0; 
+		private string ver = "REapp3 v0.0 UNrealeased yet - Use for TESTING ";
 		public MainForm(string username, string nickname)
 		{
 			InitializeComponent();
 			_username = username;
 			this.KeyPreview = true;
 			_nickname = nickname;
+			this.Text= $"REapp3 -{_nickname} - {ver}";
 		}
-		private string ver = "REapp3 v1.0"; 
+
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			MessageBox.Show("REbuild Application3 \n\nVersion: " + ver + "\n\nThis application is designed for educational purposes only. \n\nPlease do not use it for any illegal activities. \n\nThank you for using REbuild Application3!", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -111,8 +114,16 @@ namespace REapp3
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			Windows2 windows2 = new Windows2(_username);
+			windows2choice = 1; 
+			Windows2 windows2 = new Windows2(_username, windows2choice);
 			windows2.Show(); 
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			windows2choice = 2;
+			Windows2 windows2 = new Windows2(_username, windows2choice);
+			windows2.Show();
 		}
 	}
 }
