@@ -12,11 +12,23 @@ namespace REapp3
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
-		static void Main()
+		
+		static void Main(string[] args)
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+			if (args.Length > 0)
+			{
+				Application.Run(
+	new Windows2(
+		Environment.UserName,
+		2,
+		args[0]));
+			}
+			else
+			{
+				Application.Run(new Form1());
+			}
 		}
 	}
 }

@@ -96,7 +96,7 @@ namespace REapp3
 
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			this.Close(); 
+			//this.Close(); 
 		}
 
 		private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -111,18 +111,18 @@ namespace REapp3
 			Form2 form2 = new Form2(_username, _nickname, TruyenForm2);
 			form2.Show();
 		}
-
+		string pdfPath = "";
 		private void button3_Click(object sender, EventArgs e)
 		{
 			windows2choice = 1; 
-			Windows2 windows2 = new Windows2(_username, windows2choice);
+			Windows2 windows2 = new Windows2(_username, windows2choice, pdfPath);
 			windows2.Show(); 
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
 			windows2choice = 2;
-			Windows2 windows2 = new Windows2(_username, windows2choice);
+			Windows2 windows2 = new Windows2(_username, windows2choice, pdfPath);
 			windows2.Show();
 		}
 	}

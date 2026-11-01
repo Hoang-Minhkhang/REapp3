@@ -1,3 +1,6 @@
-2026/10/31-17:39:25.013 7844 Reusing MANIFEST D:\Application16\REapp3\REapp3\bin\Debug\REapp3.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2026/10/31-17:39:25.015 7844 Recovering log #7
-2026/10/31-17:39:25.018 7844 Reusing old log D:\Application16\REapp3\REapp3\bin\Debug\REapp3.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000007.log 
+2026/11/01-12:41:05.171 3af4 Reusing MANIFEST D:\Application16\REapp3\REapp3\bin\Debug\REapp3.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
+2026/11/01-12:41:05.173 3af4 Recovering log #13
+2026/11/01-12:41:05.177 3af4 Reusing old log D:\Application16\REapp3\REapp3\bin\Debug\REapp3.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000013.log 
+2026/11/01-13:23:23.666 3af4 Level-0 table #17: started
+2026/11/01-13:23:23.672 3af4 Level-0 table #17: 54342 bytes OK
+2026/11/01-13:23:23.675 3af4 Delete type=0 #13

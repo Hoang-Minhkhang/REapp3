@@ -1,6 +1,11 @@
 ﻿
+using iText.IO.Font.Constants;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
 using iText.Kernel.Pdf.Canvas;
-using Syncfusion.Drawing;
+using iText.Kernel.Pdf.Canvas;
+
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,10 +17,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using iText.Kernel.Pdf;
-using iText.Kernel.Pdf.Canvas;
-using iText.Kernel.Font;
-using iText.IO.Font.Constants;
 
 namespace REapp3
 {
@@ -24,13 +25,14 @@ namespace REapp3
 		private string currentPdfPath;
 		private string _username;
 		private int _windows2choice;
-		public Windows2(string username, int windows2choice)
+		public Windows2(string username, int windows2choice ,string pdfPath)
 		{
 			InitializeComponent();
 			usernameToolStripMenuItem.Text = username;
 			_username = username;
 			_windows2choice = windows2choice;
-			if(_windows2choice == 1)
+			currentPdfPath = pdfPath;
+			if (_windows2choice == 1)
 			{
 				tabControl1.SelectedIndex = 0;
 			}
@@ -92,6 +94,12 @@ namespace REapp3
 			await webView21.EnsureCoreWebView2Async();
 
 			webView21.CoreWebView2.Navigate("https://www.bing.com");
+			if (!string.IsNullOrEmpty(currentPdfPath))
+			{
+				await webView22.EnsureCoreWebView2Async();
+
+				webView22.Source = new Uri(currentPdfPath);
+			}
 		}
 		private void webView21_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)
 		{
@@ -174,8 +182,7 @@ namespace REapp3
 					new PdfReader(inputPdf),
 					new PdfWriter(outputPdf));
 
-			PdfFont font =
-				PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+			PdfFont font =PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
 
 			string userName = Environment.UserName;
 			string signTime = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
@@ -195,6 +202,8 @@ namespace REapp3
 
 				canvas.MoveText(0, -10);
 				canvas.ShowText("Date and time : " + signTime);
+				canvas.MoveText(0, -10);
+				canvas.ShowText($"note : {textBox1.Text}");
 
 				canvas.MoveText(0, -10);
 				canvas.ShowText("Chu ky hop le");
@@ -207,6 +216,12 @@ namespace REapp3
 			webView22.Source = new Uri(outputPdf);
 
 			MessageBox.Show($"Username : {_username}\nDate: {signTime}\n Chữ kí số hợp lệ ");
+		}
+
+		private void sIGNINToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Form1 form1 = new Form1();
+			form1.Show(); 
 		}
 	}
 }

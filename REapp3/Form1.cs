@@ -70,7 +70,7 @@ namespace REapp3
 				MatKhau.Text = "";
 				Form2 form2 = new Form2(username, nickname, TruyenForm2);
 				form2.Show();
-				this.Hide(); 
+				
 
 			}
 			else

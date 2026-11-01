@@ -1,60 +1,56 @@
-0:00:00 Microsoft.DeleteProfileHelper.CleanUpEphemeralProfiles
-0:00:00 Microsoft.DeleteProfileHelper.CleanUpDeletedProfiles
-0:00:00 Microsoft.BrowserList.AddBrowser
-0:00:00 Browser1 Insert active Tab1 at 0
-0:00:00 Tab1 StartNav1 #auto_toplevel
-0:00:00 Tab1 StartNav2 #bing #typed
-0:00:00 Tab1 FinishNav1
-0:00:00 Tab1 PageLoad
-0:00:00 Tab1 FinishNav2
-0:00:00 Tab1 PageLoad #bing
-0:00:01 Memory Pressure: Critical
-0:00:01 Tab1 StartNav3 #bing #renderer-script #auto_subframe
-0:00:02 Tab1 FinishNav3
-0:00:02 Tab1 PageLoad
-0:00:02 Tab1 StartNav4 #bing #renderer-script #auto_subframe
-0:00:02 Tab1 FinishNav4
-0:00:02 Tab1 PageLoad #bing
-0:00:07 Microsoft.BrowserList.AddBrowser
-0:00:07 Browser2 Insert active Tab2 at 0
-0:00:07 Tab2 StartNav5 #auto_toplevel
-0:00:07 Tab2 StartNav6 #typed
-0:00:07 Tab2 FinishNav5
-0:00:07 Tab2 PageLoad
-0:00:07 Tab2 FinishNav6
-0:00:07 Tab2 StartNav7 #renderer-script #auto_subframe
-0:00:07 Tab2 FinishNav7
-0:00:07 Tab2 PageLoad #pdf
-0:00:07 Tab2 PageLoad #pdf
-0:00:08 PDF.LoadSuccess
-0:00:08 Microsoft.Pdf.ScannedPdf.Opened
-0:00:12 Tab2 StartNav11 #typed
-0:00:12 Tab2 FinishNav11
-0:00:12 Tab2 StartNav12 #renderer-script #auto_subframe
-0:00:12 Tab2 FinishNav12
-0:00:12 Tab2 PageLoad #pdf
-0:00:12 Tab2 PageLoad #pdf
-0:00:13 PDF.LoadSuccess
-0:00:13 Microsoft.Pdf.ScannedPdf.Opened
-0:00:23 Tab2 StartNav16 #typed
-0:00:23 Tab2 FinishNav16
-0:00:23 Tab2 StartNav17 #renderer-script #auto_subframe
-0:00:23 Tab2 FinishNav17
-0:00:23 Tab2 PageLoad #pdf
-0:00:23 Tab2 PageLoad #pdf
-0:00:23 PDF.LoadSuccess
-0:00:25 Tab2 StartNav21 #typed
-0:00:25 Tab2 FinishNav21
-0:00:25 Tab2 StartNav22 #renderer-script #auto_subframe
-0:00:25 Tab2 FinishNav22
-0:00:25 Tab2 PageLoad #pdf
-0:00:25 Tab2 PageLoad #pdf
-0:00:26 PDF.LoadSuccess
-0:00:29 Tab2 StartNav26 #typed
-0:00:29 Tab2 FinishNav26
-0:00:29 Tab2 StartNav27 #renderer-script #auto_subframe
-0:00:29 Tab2 FinishNav27
-0:00:29 Tab2 PageLoad #pdf
-0:00:29 Tab2 PageLoad #pdf
-0:00:29 PDF.LoadSuccess
-0:00:38 Microsoft.Shutdown.OnWindowClosing
+0:16:06 Memory Pressure: Moderate
+0:16:16 Memory Pressure: None
+0:17:01 Memory Pressure: Moderate
+0:17:06 Memory Pressure: None
+0:17:11 Memory Pressure: Moderate
+0:17:16 Memory Pressure: None
+0:34:48 Memory Pressure: Moderate
+0:34:58 Memory Pressure: None
+0:35:18 Memory Pressure: Moderate
+0:35:28 Memory Pressure: None
+1:06:06 Memory Pressure: Moderate
+1:06:16 Memory Pressure: None
+1:07:16 Memory Pressure: Moderate
+1:07:26 Memory Pressure: Moderate
+1:07:36 Memory Pressure: None
+1:07:41 Memory Pressure: Moderate
+1:07:46 Memory Pressure: None
+1:08:06 Memory Pressure: Moderate
+1:08:11 Memory Pressure: None
+1:08:51 Memory Pressure: Moderate
+1:08:56 Memory Pressure: Critical
+1:09:01 Memory Pressure: Moderate
+1:09:06 Memory Pressure: None
+1:09:51 Memory Pressure: Moderate
+1:09:56 Memory Pressure: None
+1:11:16 Memory Pressure: Moderate
+1:11:21 Memory Pressure: None
+1:12:42 Memory Pressure: Moderate
+1:12:47 Memory Pressure: None
+1:27:18 Memory Pressure: Moderate
+1:27:28 Memory Pressure: None
+1:27:48 Memory Pressure: Moderate
+1:27:58 Memory Pressure: None
+1:28:08 Memory Pressure: Moderate
+1:28:18 Memory Pressure: Moderate
+1:28:28 Memory Pressure: Moderate
+1:28:38 Memory Pressure: Moderate
+1:28:48 Memory Pressure: Moderate
+1:28:58 Memory Pressure: Moderate
+1:29:08 Memory Pressure: Moderate
+1:29:18 Memory Pressure: Moderate
+1:29:28 Memory Pressure: Moderate
+1:29:38 Memory Pressure: Moderate
+1:29:48 Memory Pressure: Moderate
+1:29:58 Memory Pressure: None
+1:30:08 Memory Pressure: Moderate
+1:30:18 Memory Pressure: Moderate
+1:30:23 Memory Pressure: None
+1:30:38 Memory Pressure: Moderate
+1:30:43 Memory Pressure: None
+1:31:03 Memory Pressure: Moderate
+1:31:13 Memory Pressure: None
+1:31:23 Memory Pressure: Moderate
+1:31:28 Memory Pressure: None
+1:31:49 Memory Pressure: Moderate
+1:31:52 Microsoft.Shutdown.OnWindowClosing

@@ -45,10 +45,13 @@
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.webView22 = new Microsoft.Web.WebView2.WinForms.WebView2();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
 			this.button6 = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
+			this.sIGNINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -66,7 +69,7 @@
             this.usernameToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1148, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1150, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -94,6 +97,8 @@
 			// usernameToolStripMenuItem
 			// 
 			this.usernameToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.usernameToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sIGNINToolStripMenuItem});
 			this.usernameToolStripMenuItem.Name = "usernameToolStripMenuItem";
 			this.usernameToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
 			this.usernameToolStripMenuItem.Text = "Username";
@@ -106,7 +111,7 @@
 			this.tabControl1.Location = new System.Drawing.Point(0, 24);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(1148, 602);
+			this.tabControl1.Size = new System.Drawing.Size(1150, 721);
 			this.tabControl1.TabIndex = 1;
 			// 
 			// tabPage1
@@ -116,7 +121,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(1140, 576);
+			this.tabPage1.Size = new System.Drawing.Size(1142, 695);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "WEB broswer";
 			this.tabPage1.UseVisualStyleBackColor = true;
@@ -129,7 +134,7 @@
 			this.webView21.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.webView21.Location = new System.Drawing.Point(3, 64);
 			this.webView21.Name = "webView21";
-			this.webView21.Size = new System.Drawing.Size(1134, 509);
+			this.webView21.Size = new System.Drawing.Size(1136, 628);
 			this.webView21.TabIndex = 2;
 			this.webView21.ZoomFactor = 1D;
 			this.webView21.SourceChanged += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs>(this.webView21_SourceChanged_1);
@@ -143,7 +148,7 @@
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.groupBox1.Location = new System.Drawing.Point(3, 3);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(1134, 61);
+			this.groupBox1.Size = new System.Drawing.Size(1136, 61);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Tool";
@@ -199,7 +204,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(1140, 576);
+			this.tabPage2.Size = new System.Drawing.Size(1142, 695);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "PDF PRINTPRE";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -212,12 +217,14 @@
 			this.webView22.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.webView22.Location = new System.Drawing.Point(3, 74);
 			this.webView22.Name = "webView22";
-			this.webView22.Size = new System.Drawing.Size(1134, 499);
+			this.webView22.Size = new System.Drawing.Size(1136, 618);
 			this.webView22.TabIndex = 1;
 			this.webView22.ZoomFactor = 1D;
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.label2);
+			this.groupBox2.Controls.Add(this.textBox1);
 			this.groupBox2.Controls.Add(this.label1);
 			this.groupBox2.Controls.Add(this.button6);
 			this.groupBox2.Controls.Add(this.button5);
@@ -225,10 +232,39 @@
 			this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.groupBox2.Location = new System.Drawing.Point(3, 3);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(1134, 71);
+			this.groupBox2.Size = new System.Drawing.Size(1136, 71);
 			this.groupBox2.TabIndex = 0;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Tool";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.BackColor = System.Drawing.Color.MistyRose;
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.Location = new System.Drawing.Point(359, 43);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(40, 18);
+			this.label2.TabIndex = 5;
+			this.label2.Text = "Note";
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(405, 43);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(366, 20);
+			this.textBox1.TabIndex = 4;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.MistyRose;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(415, 22);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(356, 18);
+			this.label1.TabIndex = 3;
+			this.label1.Text = "Your computer must install Webview2 before using it ";
 			// 
 			// button6
 			// 
@@ -269,22 +305,18 @@
 			this.button4.UseVisualStyleBackColor = false;
 			this.button4.Click += new System.EventHandler(this.button4_Click);
 			// 
-			// label1
+			// sIGNINToolStripMenuItem
 			// 
-			this.label1.AutoSize = true;
-			this.label1.BackColor = System.Drawing.Color.MistyRose;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(415, 22);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(356, 18);
-			this.label1.TabIndex = 3;
-			this.label1.Text = "Your computer must install Webview2 before using it ";
+			this.sIGNINToolStripMenuItem.Name = "sIGNINToolStripMenuItem";
+			this.sIGNINToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.sIGNINToolStripMenuItem.Text = "SIGN IN ";
+			this.sIGNINToolStripMenuItem.Click += new System.EventHandler(this.sIGNINToolStripMenuItem_Click);
 			// 
 			// Windows2
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1148, 626);
+			this.ClientSize = new System.Drawing.Size(1150, 745);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.menuStrip1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -330,5 +362,8 @@
 		private System.Windows.Forms.Button button1;
 		private Microsoft.Web.WebView2.WinForms.WebView2 webView22;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.ToolStripMenuItem sIGNINToolStripMenuItem;
 	}
 }
