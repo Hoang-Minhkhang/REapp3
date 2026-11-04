@@ -89,7 +89,7 @@
             this.usernameToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1111, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(1170, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -154,7 +154,7 @@
 			this.tabControl1.Location = new System.Drawing.Point(0, 24);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(1111, 619);
+			this.tabControl1.Size = new System.Drawing.Size(1170, 729);
 			this.tabControl1.TabIndex = 1;
 			// 
 			// tabPage1
@@ -163,7 +163,7 @@
 			this.tabPage1.Location = new System.Drawing.Point(4, 22);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage1.Size = new System.Drawing.Size(1103, 593);
+			this.tabPage1.Size = new System.Drawing.Size(1162, 703);
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "MAIN";
 			this.tabPage1.UseVisualStyleBackColor = true;
@@ -192,7 +192,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 129F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 208F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1097, 587);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1156, 697);
 			this.tableLayoutPanel1.TabIndex = 0;
 			// 
 			// label1
@@ -211,7 +211,7 @@
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.ImageKey = "(none)";
-			this.button1.Location = new System.Drawing.Point(3, 46);
+			this.button1.Location = new System.Drawing.Point(3, 73);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(151, 118);
 			this.button1.TabIndex = 1;
@@ -225,7 +225,7 @@
 			this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
 			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(287, 46);
+			this.button2.Location = new System.Drawing.Point(316, 73);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(158, 118);
 			this.button2.TabIndex = 2;
@@ -239,7 +239,7 @@
 			this.button3.BackColor = System.Drawing.Color.Cyan;
 			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(567, 46);
+			this.button3.Location = new System.Drawing.Point(625, 73);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(156, 118);
 			this.button3.TabIndex = 3;
@@ -253,19 +253,20 @@
 			this.button4.BackColor = System.Drawing.Color.MediumSpringGreen;
 			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button4.Location = new System.Drawing.Point(891, 46);
+			this.button4.Location = new System.Drawing.Point(949, 73);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(153, 118);
 			this.button4.TabIndex = 4;
-			this.button4.Text = "alarm";
-			this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+			this.button4.Text = "TEST ";
+			this.button4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
 			this.button4.UseVisualStyleBackColor = false;
+			this.button4.Click += new System.EventHandler(this.button4_Click);
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(3, 174);
+			this.label2.Location = new System.Drawing.Point(3, 284);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(138, 25);
 			this.label2.TabIndex = 5;
@@ -276,7 +277,7 @@
 			this.button5.BackColor = System.Drawing.SystemColors.ActiveCaption;
 			this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button5.Location = new System.Drawing.Point(3, 232);
+			this.button5.Location = new System.Drawing.Point(3, 342);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(151, 120);
 			this.button5.TabIndex = 6;
@@ -555,9 +556,9 @@
 			// toolStrip1
 			// 
 			this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.toolStrip1.Location = new System.Drawing.Point(0, 618);
+			this.toolStrip1.Location = new System.Drawing.Point(0, 728);
 			this.toolStrip1.Name = "toolStrip1";
-			this.toolStrip1.Size = new System.Drawing.Size(1111, 25);
+			this.toolStrip1.Size = new System.Drawing.Size(1170, 25);
 			this.toolStrip1.TabIndex = 2;
 			this.toolStrip1.Text = "toolStrip1";
 			// 
@@ -565,7 +566,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1111, 643);
+			this.ClientSize = new System.Drawing.Size(1170, 753);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.tabControl1);
 			this.Controls.Add(this.menuStrip1);

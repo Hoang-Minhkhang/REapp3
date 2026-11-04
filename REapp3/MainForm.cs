@@ -125,5 +125,11 @@ namespace REapp3
 			Windows2 windows2 = new Windows2(_username, windows2choice, pdfPath);
 			windows2.Show();
 		}
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			Form3 form3 = new Form3(_username,_nickname);
+			form3.Show();
+		}
 	}
 }

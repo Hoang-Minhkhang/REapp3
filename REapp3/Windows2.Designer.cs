@@ -34,6 +34,7 @@
 			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.eXITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.usernameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.sIGNINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
@@ -51,7 +52,7 @@
 			this.button6 = new System.Windows.Forms.Button();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button4 = new System.Windows.Forms.Button();
-			this.sIGNINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.menuStrip1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -103,10 +104,18 @@
 			this.usernameToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
 			this.usernameToolStripMenuItem.Text = "Username";
 			// 
+			// sIGNINToolStripMenuItem
+			// 
+			this.sIGNINToolStripMenuItem.Name = "sIGNINToolStripMenuItem";
+			this.sIGNINToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+			this.sIGNINToolStripMenuItem.Text = "SIGN IN ";
+			this.sIGNINToolStripMenuItem.Click += new System.EventHandler(this.sIGNINToolStripMenuItem_Click);
+			// 
 			// tabControl1
 			// 
 			this.tabControl1.Controls.Add(this.tabPage1);
 			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Controls.Add(this.tabPage3);
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Location = new System.Drawing.Point(0, 24);
 			this.tabControl1.Name = "tabControl1";
@@ -305,12 +314,15 @@
 			this.button4.UseVisualStyleBackColor = false;
 			this.button4.Click += new System.EventHandler(this.button4_Click);
 			// 
-			// sIGNINToolStripMenuItem
+			// tabPage3
 			// 
-			this.sIGNINToolStripMenuItem.Name = "sIGNINToolStripMenuItem";
-			this.sIGNINToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.sIGNINToolStripMenuItem.Text = "SIGN IN ";
-			this.sIGNINToolStripMenuItem.Click += new System.EventHandler(this.sIGNINToolStripMenuItem_Click);
+			this.tabPage3.Location = new System.Drawing.Point(4, 22);
+			this.tabPage3.Name = "tabPage3";
+			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage3.Size = new System.Drawing.Size(1142, 695);
+			this.tabPage3.TabIndex = 2;
+			this.tabPage3.Text = "tabPage3";
+			this.tabPage3.UseVisualStyleBackColor = true;
 			// 
 			// Windows2
 			// 
@@ -365,5 +377,6 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.ToolStripMenuItem sIGNINToolStripMenuItem;
+		private System.Windows.Forms.TabPage tabPage3;
 	}
 }

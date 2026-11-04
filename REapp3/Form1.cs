@@ -95,7 +95,8 @@ namespace REapp3
 
 		private void button4_Click(object sender, EventArgs e)
 		{
-			Process.Start("osk.exe"); 
+			Process.Start("osk.exe");
+			// thư viện system.Diagnostics
 		}
 
 		private void đăngNhậpToolStripMenuItem1_Click(object sender, EventArgs e)

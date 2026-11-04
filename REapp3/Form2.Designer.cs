@@ -37,11 +37,12 @@
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.whatIsThisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.usernameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.sIGNOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.sIGNOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.nEWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -64,7 +65,8 @@
 			this.nOTEPADToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem});
+            this.saveAsToolStripMenuItem,
+            this.nEWToolStripMenuItem});
 			this.nOTEPADToolStripMenuItem.Name = "nOTEPADToolStripMenuItem";
 			this.nOTEPADToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
 			this.nOTEPADToolStripMenuItem.Text = "NOTEPAD";
@@ -74,12 +76,14 @@
 			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
 			this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.importToolStripMenuItem.Text = "OPEN";
+			this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
 			// 
 			// saveToolStripMenuItem
 			// 
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
 			this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.saveToolStripMenuItem.Text = "Save";
+			this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
 			// 
 			// saveAsToolStripMenuItem
 			// 
@@ -98,7 +102,7 @@
 			// whatIsThisToolStripMenuItem
 			// 
 			this.whatIsThisToolStripMenuItem.Name = "whatIsThisToolStripMenuItem";
-			this.whatIsThisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.whatIsThisToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
 			this.whatIsThisToolStripMenuItem.Text = "What is this ";
 			// 
 			// usernameToolStripMenuItem
@@ -109,6 +113,13 @@
 			this.usernameToolStripMenuItem.Name = "usernameToolStripMenuItem";
 			this.usernameToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
 			this.usernameToolStripMenuItem.Text = "Username";
+			// 
+			// sIGNOUTToolStripMenuItem
+			// 
+			this.sIGNOUTToolStripMenuItem.Name = "sIGNOUTToolStripMenuItem";
+			this.sIGNOUTToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+			this.sIGNOUTToolStripMenuItem.Text = "Close this form ";
+			this.sIGNOUTToolStripMenuItem.Click += new System.EventHandler(this.sIGNOUTToolStripMenuItem_Click);
 			// 
 			// tabControl1
 			// 
@@ -132,16 +143,6 @@
 			this.tabPage1.Text = "Notepad";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
-			// tabPage2
-			// 
-			this.tabPage2.Location = new System.Drawing.Point(4, 22);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(192, 74);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "tabPage2";
-			this.tabPage2.UseVisualStyleBackColor = true;
-			// 
 			// richTextBox1
 			// 
 			this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -152,12 +153,22 @@
 			this.richTextBox1.TabIndex = 0;
 			this.richTextBox1.Text = "";
 			// 
-			// sIGNOUTToolStripMenuItem
+			// tabPage2
 			// 
-			this.sIGNOUTToolStripMenuItem.Name = "sIGNOUTToolStripMenuItem";
-			this.sIGNOUTToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.sIGNOUTToolStripMenuItem.Text = "Close this form ";
-			this.sIGNOUTToolStripMenuItem.Click += new System.EventHandler(this.sIGNOUTToolStripMenuItem_Click);
+			this.tabPage2.Location = new System.Drawing.Point(4, 22);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage2.Size = new System.Drawing.Size(869, 440);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "tabPage2";
+			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// nEWToolStripMenuItem
+			// 
+			this.nEWToolStripMenuItem.Name = "nEWToolStripMenuItem";
+			this.nEWToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.nEWToolStripMenuItem.Text = "NEW";
+			this.nEWToolStripMenuItem.Click += new System.EventHandler(this.nEWToolStripMenuItem_Click);
 			// 
 			// Form2
 			// 
@@ -195,5 +206,6 @@
 		private System.Windows.Forms.RichTextBox richTextBox1;
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.ToolStripMenuItem sIGNOUTToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem nEWToolStripMenuItem;
 	}
 }

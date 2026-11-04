@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace REapp3
@@ -25,10 +27,58 @@ namespace REapp3
 		{
 			
 		}
-
+		private string MinhKhangNotepad = null;
 		private void sIGNOUTToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			this.Hide(); 
+		}
+
+		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrEmpty(MinhKhangNotepad))
+			{
+				File.WriteAllText(MinhKhangNotepad, richTextBox1.Text);
+			}
+			else
+			{
+				SaveFileDialog sfd = new SaveFileDialog();
+				sfd.Filter = "Text Files|*.txt";
+
+				if (sfd.ShowDialog() == DialogResult.OK)
+				{
+					MinhKhangNotepad = sfd.FileName;
+
+					File.WriteAllText(MinhKhangNotepad, richTextBox1.Text);
+
+					MessageBox.Show(
+						"File saved successfully!",
+						"Information",
+						MessageBoxButtons.OK,
+						MessageBoxIcon.Information);
+				}
+			}
+		}
+
+		private void nEWToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			richTextBox1.Clear();
+
+			// Reset trạng thái file
+			MinhKhangNotepad = null;
+
+			// Cập nhật tiêu đề form giống Notepad
+			this.Text = $"MinhKhang.exe - notepadApplication";
+		}
+
+		private void importToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog ofd = new OpenFileDialog();
+			ofd.Filter = "Text Files|*.txt";
+			if (ofd.ShowDialog() == DialogResult.OK)
+			{
+				MinhKhangNotepad = ofd.FileName;
+				richTextBox1.Text = File.ReadAllText(MinhKhangNotepad);
+			}
 		}
 	}
 }
