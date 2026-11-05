@@ -286,9 +286,29 @@ namespace REapp3
 
 		private void button7_Click(object sender, EventArgs e)
 		{
-			TruyenForm2+= $"So CAu Dung {label8.Text} Diem {label12.Text} \n " ; 
+			TruyenForm2+= $"So CAu Dung {label8.Text}  \n số câu sai {label10.Text} \n Diem {label12.Text} \n  Bài Làm Hoàn thành kết  điểm vào {DateTime.Now }" ; 
 			Form2 form2 = new Form2(_username, _nickname, TruyenForm2);
 			form2.Show(); 
+		}
+
+		private void nhậpĐápÁnToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			button5.PerformClick(); 
+		}
+
+		private void chấmLiềnToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			button6.PerformClick(); 
+		}
+
+		private void kếtĐiểmToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			button7.PerformClick(); 
+		}
+
+		private void nhậpFilePDFKiểmTraToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			button4.PerformClick(); 
 		}
 	}
 }

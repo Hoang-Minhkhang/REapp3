@@ -59,12 +59,12 @@ namespace REapp3
 		{
 			tabControl1.SelectedIndex = 1; 
 		}
-		private string tbkinfo = "Thời khóa biểu lần 6 áp dụng ngày 02 11 2026 có thời hạn 1 tuần ";
-		private int tkbEXPday = 07;
+		private string tbkinfo = "Thời khóa biểu lần 5 áp dụng ngày 07 11 2026 có thời hạn nhiều tuần ";
+		private int tkbEXPday = 27;
 		private int tkbEXPmonth = 11;
 		private int tkbEXPyear = 2026;
-		private string tkbname = "TKB L6";
-		private string note = $"Thời khóa biểu lần 6 \n Chú ý nghỉ chiều thứ 4 và sáng thứ 6 "; 
+		private string tkbname = "TKB L5";
+		private string note = $"Thời khóa biểu lần 5 \n Thời khóa biểu có tính hợp lý "; 
 		private void tabPage2_Enter(object sender, EventArgs e)
 		{
 			if (ok)

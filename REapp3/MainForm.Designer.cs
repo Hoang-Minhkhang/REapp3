@@ -174,7 +174,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.35461F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.64539F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 209F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
 			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.button1, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.button2, 1, 1);
@@ -239,7 +239,7 @@
 			this.button3.BackColor = System.Drawing.Color.Cyan;
 			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(625, 73);
+			this.button3.Location = new System.Drawing.Point(624, 73);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(156, 118);
 			this.button3.TabIndex = 3;
@@ -253,7 +253,7 @@
 			this.button4.BackColor = System.Drawing.Color.MediumSpringGreen;
 			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button4.Location = new System.Drawing.Point(949, 73);
+			this.button4.Location = new System.Drawing.Point(948, 73);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(153, 118);
 			this.button4.TabIndex = 4;
@@ -292,7 +292,7 @@
 			this.tabPage2.Location = new System.Drawing.Point(4, 22);
 			this.tabPage2.Name = "tabPage2";
 			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(1103, 593);
+			this.tabPage2.Size = new System.Drawing.Size(1162, 703);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "ImagePre";
 			this.tabPage2.UseVisualStyleBackColor = true;
@@ -314,7 +314,7 @@
 			this.tableLayoutPanel2.RowCount = 2;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.15673F));
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.84327F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(1097, 587);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(1156, 697);
 			this.tableLayoutPanel2.TabIndex = 0;
 			this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
 			// 
@@ -324,7 +324,7 @@
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
 			this.pictureBox1.Location = new System.Drawing.Point(3, 3);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(871, 488);
+			this.pictureBox1.Size = new System.Drawing.Size(918, 580);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
@@ -335,9 +335,9 @@
 			// 
 			this.groupBox1.Controls.Add(this.tableLayoutPanel3);
 			this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.groupBox1.Location = new System.Drawing.Point(3, 497);
+			this.groupBox1.Location = new System.Drawing.Point(3, 589);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(871, 87);
+			this.groupBox1.Size = new System.Drawing.Size(918, 105);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Information";
@@ -353,7 +353,7 @@
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 1;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(865, 67);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(912, 85);
 			this.tableLayoutPanel3.TabIndex = 0;
 			// 
 			// label3
@@ -388,7 +388,7 @@
 			this.tableLayoutPanel4.Controls.Add(this.button6, 0, 6);
 			this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tableLayoutPanel4.Location = new System.Drawing.Point(880, 3);
+			this.tableLayoutPanel4.Location = new System.Drawing.Point(927, 3);
 			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
 			this.tableLayoutPanel4.RowCount = 18;
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -409,7 +409,7 @@
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(214, 488);
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(226, 580);
 			this.tableLayoutPanel4.TabIndex = 2;
 			// 
 			// label15
@@ -547,7 +547,7 @@
 			this.tabPage3.Location = new System.Drawing.Point(4, 22);
 			this.tabPage3.Name = "tabPage3";
 			this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage3.Size = new System.Drawing.Size(1103, 593);
+			this.tabPage3.Size = new System.Drawing.Size(1162, 703);
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "CongViec1";
 			this.tabPage3.UseVisualStyleBackColor = true;
