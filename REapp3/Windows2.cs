@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
@@ -222,6 +223,21 @@ namespace REapp3
 		{
 			Form1 form1 = new Form1();
 			form1.Show(); 
+		}
+
+		private void button7_Click_1(object sender, EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(currentPdfPath))
+			{
+				MessageBox.Show("Chưa chọn file PDF");
+				return;
+			}
+
+			Process.Start(new ProcessStartInfo()
+			{
+				FileName = currentPdfPath,
+				UseShellExecute = true
+			});
 		}
 	}
 }

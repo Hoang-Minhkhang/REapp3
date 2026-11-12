@@ -1,105 +1,95 @@
-0:23:42 Memory Pressure: Moderate
-0:23:52 Memory Pressure: None
-0:24:32 Memory Pressure: Moderate
-0:24:37 Memory Pressure: None
-0:25:12 Memory Pressure: Moderate
-0:25:17 Memory Pressure: None
-0:25:37 Memory Pressure: Moderate
-0:25:47 Memory Pressure: None
-0:25:57 Memory Pressure: Moderate
-0:26:02 Memory Pressure: None
-0:26:07 Memory Pressure: Moderate
-0:26:12 Memory Pressure: None
-0:27:17 Memory Pressure: Moderate
-0:27:22 Memory Pressure: None
-0:27:32 Memory Pressure: Moderate
-0:27:37 Memory Pressure: None
-0:27:47 Memory Pressure: Moderate
-0:27:52 Memory Pressure: None
-0:29:52 Memory Pressure: Moderate
-0:29:57 Memory Pressure: None
-0:35:28 Widget Closed: MenuHost
-0:36:08 Memory Pressure: Moderate
-0:36:18 Memory Pressure: None
-0:36:23 Memory Pressure: Moderate
-0:36:28 Memory Pressure: None
-0:36:38 Memory Pressure: Moderate
-0:36:43 Memory Pressure: None
-0:51:10 Memory Pressure: Moderate
-0:51:20 Memory Pressure: Moderate
-0:51:25 Memory Pressure: None
-0:51:40 Memory Pressure: Moderate
-0:51:45 Memory Pressure: None
-1:02:21 Memory Pressure: Moderate
-1:02:26 Memory Pressure: None
-1:07:31 Memory Pressure: Moderate
-1:07:36 Memory Pressure: Critical
-1:07:41 Memory Pressure: Moderate
-1:07:46 Memory Pressure: None
-1:09:06 Memory Pressure: Moderate
-1:09:16 Memory Pressure: None
-1:10:06 Memory Pressure: Moderate
-1:10:16 Memory Pressure: None
-1:10:36 Memory Pressure: Moderate
-1:10:41 Memory Pressure: None
-1:11:36 Memory Pressure: Moderate
-1:11:46 Memory Pressure: None
-1:12:06 Memory Pressure: Moderate
-1:12:11 Memory Pressure: None
-1:12:52 Memory Pressure: Moderate
-1:12:57 Memory Pressure: None
-1:14:12 Memory Pressure: Moderate
-1:14:17 Memory Pressure: None
-1:14:22 Memory Pressure: Moderate
-1:14:27 Memory Pressure: None
-1:14:42 Memory Pressure: Moderate
-1:14:47 Memory Pressure: None
-1:15:12 Memory Pressure: Moderate
-1:15:17 Memory Pressure: None
-1:15:27 Memory Pressure: Moderate
-1:15:32 Memory Pressure: None
-1:17:17 Memory Pressure: Moderate
-1:17:22 Memory Pressure: None
-1:18:02 Memory Pressure: Moderate
-1:18:07 Memory Pressure: None
-1:19:22 Memory Pressure: Moderate
-1:19:27 Memory Pressure: None
-1:20:37 Memory Pressure: Moderate
-1:20:42 Memory Pressure: None
-1:20:47 Memory Pressure: Moderate
-1:20:52 Memory Pressure: None
-1:20:57 Memory Pressure: Moderate
-1:21:07 Memory Pressure: None
-1:24:03 Memory Pressure: Moderate
-1:24:08 Memory Pressure: None
-1:24:38 Memory Pressure: Moderate
-1:24:43 Memory Pressure: None
-1:26:03 Memory Pressure: Moderate
-1:26:08 Memory Pressure: None
-1:27:58 Memory Pressure: Moderate
-1:28:03 Memory Pressure: None
-1:34:38 Memory Pressure: Moderate
-1:34:43 Memory Pressure: None
-1:35:04 Memory Pressure: Moderate
-1:35:09 Memory Pressure: None
-1:37:39 Memory Pressure: Moderate
-1:37:44 Memory Pressure: None
-1:54:45 Memory Pressure: Moderate
-1:54:50 Memory Pressure: None
-1:57:06 Memory Pressure: Moderate
-1:57:11 Memory Pressure: None
-2:00:01 Memory Pressure: Moderate
-2:00:11 Memory Pressure: Moderate
-2:00:16 Memory Pressure: None
-2:00:51 Memory Pressure: Moderate
-2:00:56 Memory Pressure: None
-2:15:03 Memory Pressure: Moderate
-2:15:13 Memory Pressure: None
-2:17:03 Memory Pressure: Moderate
-2:17:13 Memory Pressure: None
-2:17:18 Memory Pressure: Moderate
-2:17:23 Memory Pressure: None
-2:29:19 Memory Pressure: Moderate
-2:29:24 Memory Pressure: None
-2:32:30 Memory Pressure: Moderate
-2:32:35 Memory Pressure: None
+0:00:00 Microsoft.DeleteProfileHelper.CleanUpEphemeralProfiles
+0:00:00 Microsoft.DeleteProfileHelper.CleanUpDeletedProfiles
+0:00:00 Microsoft.BrowserList.AddBrowser
+0:00:00 Browser1 Insert active Tab1 at 0
+0:00:00 Tab1 StartNav1 #auto_toplevel
+0:00:00 Tab1 StartNav2 #bing #typed
+0:00:00 Tab1 FinishNav1
+0:00:00 Tab1 PageLoad
+0:00:00 Tab1 FinishNav2
+0:00:00 Tab1 PageLoad #bing
+0:00:01 Memory Pressure: Critical
+0:00:01 Tab1 StartNav3 #bing #renderer-script #auto_subframe
+0:00:02 Tab1 FinishNav3
+0:00:02 Tab1 PageLoad
+0:00:02 Tab1 StartNav4 #bing #renderer-script #auto_subframe
+0:00:02 Tab1 FinishNav4
+0:00:02 Tab1 PageLoad #bing
+0:00:03 Microsoft.BrowserList.AddBrowser
+0:00:03 Browser2 Insert active Tab2 at 0
+0:00:03 Tab2 StartNav5 #auto_toplevel
+0:00:03 Tab2 StartNav6 #typed
+0:00:03 Tab2 FinishNav5
+0:00:03 Tab2 PageLoad
+0:00:03 Tab2 FinishNav6
+0:00:03 Tab2 StartNav7 #renderer-script #auto_subframe
+0:00:03 Tab2 FinishNav7
+0:00:03 Tab2 PageLoad #pdf
+0:00:03 Tab2 PageLoad #pdf
+0:00:03 PDF.LoadSuccess
+0:00:03 Microsoft.Pdf.ScannedPdf.Opened
+0:00:07 Microsoft.Shutdown.OnWindowClosing
+0:00:00 Startup
+0:00:00 Microsoft.DeleteProfileHelper.CleanUpEphemeralProfiles
+0:00:00 Microsoft.DeleteProfileHelper.CleanUpDeletedProfiles
+0:00:00 Microsoft.BrowserList.AddBrowser
+0:00:00 Browser1 Insert active Tab1 at 0
+0:00:00 Tab1 StartNav1 #auto_toplevel
+0:00:00 Tab1 StartNav2 #bing #typed
+0:00:00 Tab1 FinishNav1
+0:00:00 Tab1 PageLoad
+0:00:00 Tab1 FinishNav2
+0:00:00 Tab1 PageLoad #bing
+0:00:00 Tab1 StartNav3 #bing #renderer-script #auto_subframe
+0:00:01 Memory Pressure: Critical
+0:00:01 Tab1 FinishNav3
+0:00:01 Tab1 PageLoad
+0:00:01 Tab1 StartNav4 #bing #renderer-script #auto_subframe
+0:00:01 Tab1 FinishNav4
+0:00:01 Tab1 PageLoad #bing
+0:00:02 Microsoft.BrowserList.AddBrowser
+0:00:02 Browser2 Insert active Tab2 at 0
+0:00:02 Tab2 StartNav5 #auto_toplevel
+0:00:02 Tab2 StartNav6 #typed
+0:00:02 Tab2 FinishNav5
+0:00:02 Tab2 PageLoad
+0:00:02 Tab2 FinishNav6
+0:00:02 Tab2 StartNav7 #renderer-script #auto_subframe
+0:00:02 Tab2 FinishNav7
+0:00:02 Tab2 PageLoad #pdf
+0:00:02 Tab2 PageLoad #pdf
+0:00:03 PDF.LoadSuccess
+0:00:03 Microsoft.Pdf.ScannedPdf.Opened
+0:00:10 Microsoft.Shutdown.OnWindowClosing
+0:00:00 Startup
+0:00:00 Microsoft.DeleteProfileHelper.CleanUpEphemeralProfiles
+0:00:00 Microsoft.DeleteProfileHelper.CleanUpDeletedProfiles
+0:00:00 Microsoft.BrowserList.AddBrowser
+0:00:00 Browser1 Insert active Tab1 at 0
+0:00:00 Tab1 StartNav1 #auto_toplevel
+0:00:00 Tab1 StartNav2 #bing #typed
+0:00:00 Tab1 FinishNav1
+0:00:00 Tab1 PageLoad
+0:00:00 Tab1 FinishNav2
+0:00:00 Tab1 PageLoad #bing
+0:00:01 Tab1 StartNav3 #bing #renderer-script #auto_subframe
+0:00:01 Memory Pressure: Critical
+0:00:02 Tab1 FinishNav3
+0:00:02 Tab1 PageLoad
+0:00:02 Tab1 StartNav4 #bing #renderer-script #auto_subframe
+0:00:02 Tab1 FinishNav4
+0:00:02 Tab1 PageLoad #bing
+0:00:02 Microsoft.BrowserList.AddBrowser
+0:00:02 Browser2 Insert active Tab2 at 0
+0:00:02 Tab2 StartNav5 #auto_toplevel
+0:00:02 Tab2 StartNav6 #typed
+0:00:02 Tab2 FinishNav5
+0:00:02 Tab2 PageLoad
+0:00:02 Tab2 FinishNav6
+0:00:02 Tab2 StartNav7 #renderer-script #auto_subframe
+0:00:02 Tab2 FinishNav7
+0:00:02 Tab2 PageLoad #pdf
+0:00:02 Tab2 PageLoad #pdf
+0:00:03 PDF.LoadSuccess
+0:00:03 Microsoft.Pdf.ScannedPdf.Opened
+0:00:50 Microsoft.Shutdown.OnWindowClosing

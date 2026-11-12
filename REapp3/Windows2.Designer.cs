@@ -46,6 +46,7 @@
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.webView22 = new Microsoft.Web.WebView2.WinForms.WebView2();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.button7 = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -232,6 +233,7 @@
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.button7);
 			this.groupBox2.Controls.Add(this.label2);
 			this.groupBox2.Controls.Add(this.textBox1);
 			this.groupBox2.Controls.Add(this.label1);
@@ -245,6 +247,19 @@
 			this.groupBox2.TabIndex = 0;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Tool";
+			// 
+			// button7
+			// 
+			this.button7.BackColor = System.Drawing.Color.Orange;
+			this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button7.Location = new System.Drawing.Point(1027, 10);
+			this.button7.Name = "button7";
+			this.button7.Size = new System.Drawing.Size(103, 55);
+			this.button7.TabIndex = 6;
+			this.button7.Text = "Open with default PDF ";
+			this.button7.UseVisualStyleBackColor = false;
+			this.button7.Click += new System.EventHandler(this.button7_Click_1);
 			// 
 			// label2
 			// 
@@ -378,5 +393,6 @@
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.ToolStripMenuItem sIGNINToolStripMenuItem;
 		private System.Windows.Forms.TabPage tabPage3;
+		private System.Windows.Forms.Button button7;
 	}
 }

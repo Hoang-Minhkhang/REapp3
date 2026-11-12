@@ -1,6 +1,0 @@
-2026/11/01-13:16:14.967 8394 Creating DB D:\Application16\REapp3\REapp3\bin\Debug\REapp3.exe.WebView2\EBWebView\Default\IndexedDB\devtools_devtools_0.indexeddb.leveldb since it was missing.
-2026/11/01-13:16:14.974 8394 Reusing MANIFEST D:\Application16\REapp3\REapp3\bin\Debug\REapp3.exe.WebView2\EBWebView\Default\IndexedDB\devtools_devtools_0.indexeddb.leveldb/MANIFEST-000001
-2026/11/01-13:16:49.652 7104 Level-0 table #5: started
-2026/11/01-13:16:49.654 7104 Level-0 table #5: 1044 bytes OK
-2026/11/01-13:16:49.656 7104 Delete type=0 #3
-2026/11/01-13:16:49.656 7104 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
