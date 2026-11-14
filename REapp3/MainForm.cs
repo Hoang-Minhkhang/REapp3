@@ -23,7 +23,7 @@ namespace REapp3
 		private TimeSpan pausedTime = TimeSpan.Zero;
 		private bool ok = true;
 		private int windows2choice = 0; 
-		private string ver = "REapp3 v0.0 UNrealeased yet - Use for TESTING ";
+		private string ver = "REapp3 v0.1 UNrealeased yet - Last Update 13-11-2026 ";
 		public MainForm(string username, string nickname)
 		{
 			InitializeComponent();
@@ -43,9 +43,11 @@ namespace REapp3
 		public class TaskItem
 		{
 			public string Name { get; set; }
-
+			public string WorkTime { get; set; }
 			public bool Completed { get; set; }
+			public string Note { get; set; }
 		}
+		
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 			usernameToolStripMenuItem.Text = _nickname; 
@@ -183,6 +185,11 @@ namespace REapp3
 		{
 			timer1.Stop();
 			isRunning = false;
+			button17.PerformClick();
+			TruyenForm2 += $"Kết thúc phiên làm việc - tổng thời gian là  {label19.Text} vào {DateTime.Now}\n";
+			TruyenForm2 += $"Chữ Ký {_username}\n \n \n \n \n \n \n \n \n \n _________________________________ \n Reapplication3 {ver} \n  xuất vào {DateTime.Now} ";
+			Form2 form2 = new Form2(_username, _nickname, TruyenForm2);
+			form2.Show();
 		}
 		private void UpdateProgress()
 		{
@@ -197,36 +204,52 @@ namespace REapp3
 				completed * 100 / tasks.Count;
 			progressBar1.Value = percent;
 		}
-
+		private void TxtNote_TextChanged(	object sender,EventArgs e)
+		{
+			TextBox txt = sender as TextBox;
+			TaskItem task = txt.Tag as TaskItem;
+			if (task != null)
+			{
+				task.Note = txt.Text;
+			}
+		}
 		private void CreateTaskBox(TaskItem task)
 		{
 			GroupBox gb = new GroupBox();
 			gb.Text = "Task";
 			gb.Width = 300;
-			gb.Height = 100;
+			gb.Height = 140;
 			System.Windows.Forms.Label lblTask =
 				new System.Windows.Forms.Label();
 			lblTask.Text = task.Name;
-			lblTask.Location =
-				new Point(10, 20);
+			lblTask.Location = new Point(10, 20);
 			lblTask.AutoSize = true;
+			TextBox txtNote = new TextBox();
+			txtNote.Name = "txtNote";
+			txtNote.Multiline = true;
+			txtNote.Width = 250;
+			txtNote.Height = 20;
+			txtNote.Location = new Point(10, 40);
+			txtNote.Text = "";
+			// PHẢI ĐẶT SAU KHI KHAI BÁO txtNote
+			txtNote.Tag = task;
+			txtNote.TextChanged += TxtNote_TextChanged;
 			System.Windows.Forms.Label lblStatus =
 				new System.Windows.Forms.Label();
 			lblStatus.Name = "lblStatus";
-			lblStatus.Text =
-				"Đang thực hiện";
-			lblStatus.ForeColor =Color.Orange;
-			lblStatus.Location =new Point(10, 50);
-			Button btnDone =new Button();
-			btnDone.Text =
-				"Hoàn Thành";
-			btnDone.Location =
-				new Point(180, 40);
+			lblStatus.Text = "Đang thực hiện";
+			lblStatus.ForeColor = Color.Orange;
+			lblStatus.Location = new Point(10, 90);
+			Button btnDone = new Button();
+			btnDone.Text = "Hoàn Thành";
+			btnDone.Location = new Point(180, 95);
+			btnDone.Tag = task;
 			btnDone.Click += BtnDone_Click;
 			gb.Controls.Add(lblTask);
+			gb.Controls.Add(txtNote);
 			gb.Controls.Add(lblStatus);
 			gb.Controls.Add(btnDone);
-			btnDone.Tag = task;
+
 			flowLayoutPanel1.Controls.Add(gb);
 		}
 		private void BtnDone_Click(object sender, EventArgs e)
@@ -286,6 +309,7 @@ namespace REapp3
 				);
 			}
 		}
+
 		private void textBox1_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter)
@@ -326,6 +350,45 @@ namespace REapp3
 				checkedListBox1.Items.Add(task.Name);
 				CreateTaskBox(task);
 			}
+		}
+
+		private void button16_Click(object sender, EventArgs e)
+		{
+			tabControl1.SelectedIndex = 2; 
+		}
+
+		private void button8_Click(object sender, EventArgs e)
+		{
+			button17.PerformClick(); 
+			TruyenForm2+= $"Xuất phiên làm việc , thời gian tạm tính là {label19.Text} vào {DateTime.Now}\n";
+			Form2 form2 = new Form2(_username, _nickname, TruyenForm2);
+			form2.Show();
+		}
+
+		private void button17_Click(object sender, EventArgs e)
+		{
+			TruyenForm2+= "--------------------------------\n";
+			TruyenForm2 += $"Tên người dùng : {_username}\n";
+			TruyenForm2 +=
+		$"Tên phiên : {TenPhien.Text}\n";
+			TruyenForm2 +=
+				$"Chi tiết  : {Details.Text}\n";
+			TruyenForm2 +=
+				$"Thời gian : {label19.Text}\n";
+			TruyenForm2 +=
+				"\n--------------------------------\n\n";
+			foreach (TaskItem task in tasks)
+			{
+				TruyenForm2 +=
+					$"{task.Name}\n";
+				TruyenForm2 +=
+					$"     Trạng thái : {(task.Completed ? "Hoàn Thành" : "Chưa Hoàn Thành")}\n";
+				TruyenForm2 +=
+					$"     Thời gian  : {(string.IsNullOrEmpty(task.WorkTime) ? label19.Text : task.WorkTime)}\n";
+				TruyenForm2 +=
+					$"     Ghi chú    : {(string.IsNullOrEmpty(task.Note) ? "Không có" : task.Note)}\n\n";
+			}
+			richTextBox1.Text = TruyenForm2;
 		}
 	}
 }

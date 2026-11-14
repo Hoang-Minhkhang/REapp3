@@ -199,14 +199,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="REapp3.exe" size="3603392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="REapp3.exe" size="3605952">
       <assemblyIdentity name="REapp3" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>B5pgcbctY4kbftrGZP3TOk48/1HO2Dtz1PC/Ykk/eKc=</dsig:DigestValue>
+        <dsig:DigestValue>djsEc5V8aZYpIgL0W3sFQ3K8cqB5tmXcOZEuzFu/sQ0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
