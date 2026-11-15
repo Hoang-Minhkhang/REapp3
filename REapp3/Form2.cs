@@ -15,11 +15,12 @@ namespace REapp3
 {
 	public partial class Form2 : Form
 	{
+		private string note = ""; 
 		public Form2(string username, string nickname,string TruyenForm2 )
 		{
 			InitializeComponent();
 			richTextBox1.Text = "THis is REapp3 Notepad \n HI " + username + " !\n\nVisit https://github.com/Hoang-Minhkhang/REapp3/ for more information  \n to save this document : Notepad->saveFile \n  ";
-			richTextBox1.Text += "\n Sign in as " + username + " at " + DateTime.Now + " \n " + TruyenForm2;
+			richTextBox1.Text += "\n Sign in as " + username + " at " + DateTime.Now + " \n " + note + "\n " + TruyenForm2;
 			usernameToolStripMenuItem.Text = nickname;
 		}
 

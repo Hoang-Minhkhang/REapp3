@@ -25,6 +25,7 @@ namespace REapp3
 	{
 		private string currentPdfPath;
 		private string _username;
+		public Image IncomingImage { get; set; }
 		private int _windows2choice;
 		public Windows2(string username, int windows2choice ,string pdfPath)
 		{
@@ -93,13 +94,38 @@ namespace REapp3
 		private async void Windows2_Load(object sender, EventArgs e)
 		{
 			await webView21.EnsureCoreWebView2Async();
-
 			webView21.CoreWebView2.Navigate("https://www.bing.com");
 			if (!string.IsNullOrEmpty(currentPdfPath))
 			{
 				await webView22.EnsureCoreWebView2Async();
 
 				webView22.Source = new Uri(currentPdfPath);
+			}
+
+			else if (IncomingImage != null)
+			{
+				DisplayImageInWebView(IncomingImage);
+				//MessageBox.Show(webView22.CoreWebView2 == null ? "NULL" : "OK");
+			}
+		}
+		private async Task DisplayImageInWebView(Image image)
+		{
+			if (image == null || webView22.CoreWebView2 == null)
+				return;
+			using (MemoryStream ms = new MemoryStream())
+			{
+				image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+				string base64 = Convert.ToBase64String(ms.ToArray());
+				string html = $@"
+<!DOCTYPE html>
+<html>
+<body style='margin:0;background:white'>
+    <img src='data:image/png;base64,{base64}'
+         style='width:100%; height:auto;' />
+</body>
+</html>";
+
+				webView22.CoreWebView2.NavigateToString(html);
 			}
 		}
 		private void webView21_NavigationCompleted(object sender, Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs e)

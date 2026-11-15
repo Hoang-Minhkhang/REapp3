@@ -72,6 +72,7 @@
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.button17 = new System.Windows.Forms.Button();
 			this.button12 = new System.Windows.Forms.Button();
 			this.button11 = new System.Windows.Forms.Button();
 			this.label19 = new System.Windows.Forms.Label();
@@ -100,9 +101,12 @@
 			this.label22 = new System.Windows.Forms.Label();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.groupBox6 = new System.Windows.Forms.GroupBox();
+			this.label24 = new System.Windows.Forms.Label();
+			this.label23 = new System.Windows.Forms.Label();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.button17 = new System.Windows.Forms.Button();
+			this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
 			this.menuStrip1.SuspendLayout();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
@@ -121,6 +125,7 @@
 			this.tableLayoutPanel6.SuspendLayout();
 			this.groupBox4.SuspendLayout();
 			this.groupBox5.SuspendLayout();
+			this.groupBox6.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// menuStrip1
@@ -216,7 +221,7 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.35461F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.64539F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 214F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 216F));
 			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.button1, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.button2, 1, 1);
@@ -268,7 +273,7 @@
 			this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
 			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(314, 73);
+			this.button2.Location = new System.Drawing.Point(313, 73);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(158, 118);
 			this.button2.TabIndex = 2;
@@ -282,7 +287,7 @@
 			this.button3.BackColor = System.Drawing.Color.Cyan;
 			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(620, 73);
+			this.button3.Location = new System.Drawing.Point(618, 73);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(156, 118);
 			this.button3.TabIndex = 3;
@@ -296,7 +301,7 @@
 			this.button4.BackColor = System.Drawing.Color.MediumSpringGreen;
 			this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button4.Location = new System.Drawing.Point(944, 73);
+			this.button4.Location = new System.Drawing.Point(942, 73);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(153, 118);
 			this.button4.TabIndex = 4;
@@ -334,7 +339,7 @@
 			this.button16.BackColor = System.Drawing.Color.Yellow;
 			this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button16.Location = new System.Drawing.Point(314, 342);
+			this.button16.Location = new System.Drawing.Point(313, 342);
 			this.button16.Name = "button16";
 			this.button16.Size = new System.Drawing.Size(151, 120);
 			this.button16.TabIndex = 7;
@@ -598,6 +603,7 @@
 			this.button6.TabIndex = 12;
 			this.button6.Text = "Print";
 			this.button6.UseVisualStyleBackColor = true;
+			this.button6.Click += new System.EventHandler(this.button6_Click);
 			// 
 			// tabPage3
 			// 
@@ -619,6 +625,7 @@
 			this.tableLayoutPanel5.Controls.Add(this.groupBox2, 0, 0);
 			this.tableLayoutPanel5.Controls.Add(this.groupBox3, 1, 0);
 			this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 1);
+			this.tableLayoutPanel5.Controls.Add(this.groupBox6, 1, 1);
 			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
 			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -650,6 +657,20 @@
 			this.groupBox2.TabIndex = 0;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "CongViec";
+			// 
+			// button17
+			// 
+			this.button17.BackColor = System.Drawing.Color.Coral;
+			this.button17.Cursor = System.Windows.Forms.Cursors.Default;
+			this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button17.Location = new System.Drawing.Point(420, 58);
+			this.button17.Name = "button17";
+			this.button17.Size = new System.Drawing.Size(75, 35);
+			this.button17.TabIndex = 11;
+			this.button17.Text = "Add Process ";
+			this.button17.UseVisualStyleBackColor = false;
+			this.button17.Click += new System.EventHandler(this.button17_Click);
 			// 
 			// button12
 			// 
@@ -962,6 +983,37 @@
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(744, 475);
 			this.flowLayoutPanel1.TabIndex = 3;
 			// 
+			// groupBox6
+			// 
+			this.groupBox6.Controls.Add(this.label24);
+			this.groupBox6.Controls.Add(this.label23);
+			this.groupBox6.Location = new System.Drawing.Point(1009, 103);
+			this.groupBox6.Name = "groupBox6";
+			this.groupBox6.Size = new System.Drawing.Size(144, 100);
+			this.groupBox6.TabIndex = 3;
+			this.groupBox6.TabStop = false;
+			this.groupBox6.Text = "Time";
+			// 
+			// label24
+			// 
+			this.label24.AutoSize = true;
+			this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label24.Location = new System.Drawing.Point(33, 46);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(54, 18);
+			this.label24.TabIndex = 1;
+			this.label24.Text = "label24";
+			// 
+			// label23
+			// 
+			this.label23.AutoSize = true;
+			this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label23.Location = new System.Drawing.Point(32, 22);
+			this.label23.Name = "label23";
+			this.label23.Size = new System.Drawing.Size(77, 24);
+			this.label23.TabIndex = 0;
+			this.label23.Text = "label23";
+			// 
 			// toolStrip1
 			// 
 			this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -975,19 +1027,12 @@
 			// 
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
-			// button17
+			// notifyIcon1
 			// 
-			this.button17.BackColor = System.Drawing.Color.Coral;
-			this.button17.Cursor = System.Windows.Forms.Cursors.Default;
-			this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button17.Location = new System.Drawing.Point(420, 58);
-			this.button17.Name = "button17";
-			this.button17.Size = new System.Drawing.Size(75, 35);
-			this.button17.TabIndex = 11;
-			this.button17.Text = "Add Process ";
-			this.button17.UseVisualStyleBackColor = false;
-			this.button17.Click += new System.EventHandler(this.button17_Click);
+			this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+			this.notifyIcon1.Text = "notifyIcon1";
+			this.notifyIcon1.Visible = true;
+			this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
 			// 
 			// MainForm
 			// 
@@ -1004,6 +1049,8 @@
 			this.Text = "MainForm";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.MainForm_Load);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
+			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.tabControl1.ResumeLayout(false);
@@ -1031,6 +1078,8 @@
 			this.groupBox4.PerformLayout();
 			this.groupBox5.ResumeLayout(false);
 			this.groupBox5.PerformLayout();
+			this.groupBox6.ResumeLayout(false);
+			this.groupBox6.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1111,5 +1160,9 @@
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.Button button16;
 		private System.Windows.Forms.Button button17;
+		private System.Windows.Forms.GroupBox groupBox6;
+		private System.Windows.Forms.Label label24;
+		private System.Windows.Forms.Label label23;
+		private System.Windows.Forms.NotifyIcon notifyIcon1;
 	}
 }

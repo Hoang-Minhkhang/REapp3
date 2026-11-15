@@ -16,6 +16,7 @@ namespace REapp3
 	public partial class MainForm : Form
 	{
 		private string _username;
+		private Timer timer = new Timer();
 		public string _nickname { get; set; }
 		private string TruyenForm2 = "";
 		private bool isRunning = false;
@@ -32,7 +33,15 @@ namespace REapp3
 			_nickname = nickname;
 			this.Text= $"REapp3 -{_nickname} - {ver}";
 			label20.Text = username;
-			label21.Text = nickname; 
+			label21.Text = nickname;
+			timer.Interval = 1000; // cập nhật mỗi giây
+			timer.Tick += Timer_Tick;
+			timer.Start();
+		}
+		private void Timer_Tick(object sender, EventArgs e)
+		{
+			label23.Text = DateTime.Now.ToString("HH:mm:ss");
+			label24.Text = DateTime.Now.ToString("dd/MM/yyyy");
 		}
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -152,14 +161,24 @@ namespace REapp3
 			{
 				TimeSpan elapsed =
 					DateTime.Now - startTime;
+				this.Text = $"[{label19.Text}]REapp3 -{_nickname} - {ver}";
 				label19.Text =		elapsed.ToString(@"hh\:mm\:ss");
 			}
 		}
 		private void button7_Click(object sender, EventArgs e)
 		{
+			if (isRunning)
+			{
+				MessageBox.Show("Phiên làm việc đang hoạt động \n vui lòng kết thúc  ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
 			isRunning = true;
 			startTime = DateTime.Now;
 			timer1.Start();
+			notifyIcon1.BalloonTipTitle = "Thông báo";
+			notifyIcon1.BalloonTipText = "phiên làm việc đã bắt đầu";
+			notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+			notifyIcon1.ShowBalloonTip(5000);
 		}
 
 		private void button9_Click(object sender, EventArgs e)
@@ -170,6 +189,11 @@ namespace REapp3
 				timer1.Stop();
 				pausedTime = DateTime.Now - startTime;
 				button9.Text = "Resume";
+				notifyIcon1.BalloonTipTitle = "Thông báo";
+				notifyIcon1.BalloonTipText = "Đồng hồ đã được tạm ngưng ";
+				notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+				notifyIcon1.ShowBalloonTip(5000);
+				this.Text = $"[Pause]REapp3 -{_nickname} - {ver}";
 			}
 			else
 			{	
@@ -177,6 +201,10 @@ namespace REapp3
 				startTime = DateTime.Now - pausedTime;
 				timer1.Start();
 				button9.Text = "Pause";
+				notifyIcon1.BalloonTipTitle = "Thông báo";
+				notifyIcon1.BalloonTipText = "Đồng hồ đã được tiếp tục ";
+				notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+				notifyIcon1.ShowBalloonTip(5000);
 			}
 		}
 		
@@ -190,6 +218,11 @@ namespace REapp3
 			TruyenForm2 += $"Chữ Ký {_username}\n \n \n \n \n \n \n \n \n \n _________________________________ \n Reapplication3 {ver} \n  xuất vào {DateTime.Now} ";
 			Form2 form2 = new Form2(_username, _nickname, TruyenForm2);
 			form2.Show();
+			notifyIcon1.BalloonTipTitle = "Thông báo";
+			notifyIcon1.BalloonTipText = "Phiên làm việc đã kết thúc";
+			notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+			notifyIcon1.ShowBalloonTip(5000);
+			this.Text = $"REapp3 -{_nickname} - {ver}";
 		}
 		private void UpdateProgress()
 		{
@@ -389,6 +422,60 @@ namespace REapp3
 					$"     Ghi chú    : {(string.IsNullOrEmpty(task.Note) ? "Không có" : task.Note)}\n\n";
 			}
 			richTextBox1.Text = TruyenForm2;
+		}
+
+		private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			Show();
+			WindowState = FormWindowState.Normal;
+			Activate();
+		}
+
+		private void MainForm_MouseDown(object sender, MouseEventArgs e)
+		{
+			
+		}
+
+		private void MainForm_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.F2)
+			{
+				tabControl1.SelectedIndex = 2;
+			}
+			else if (e.KeyCode == Keys.F3)
+			{
+				tabControl1.SelectedIndex = 1;
+			}
+			else if (e.KeyCode == Keys.F9)
+			{
+				tabControl1.SelectedIndex = 12;
+				button7.PerformClick();
+			}
+			else if (e.KeyCode == Keys.F10)
+			{
+				tabControl1.SelectedIndex = 12;
+				button8.PerformClick();
+			}
+			else if (e.KeyCode == Keys.F11)
+			{
+				tabControl1.SelectedIndex = 12;
+				button9.PerformClick();
+			}
+			else if (e.KeyCode == Keys.F12)
+			{
+				tabControl1.SelectedIndex = 12;
+				button10.PerformClick();
+			}
+		}
+
+		private void button6_Click(object sender, EventArgs e)
+		{
+			windows2choice = 2; 
+			Windows2 frm = new Windows2(_username,windows2choice, pdfPath);
+
+			frm.IncomingImage = pictureBox1.Image;
+
+			frm.Show();
 		}
 	}
 }
