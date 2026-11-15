@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REapp3 Download</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+    text-align:center;
+    padding-top:100px;
+}
+
+.box{
+    background:white;
+    width:400px;
+    margin:auto;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+input{
+    width:80%;
+    padding:10px;
+    margin:10px;
+}
+
+button{
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+#download{
+    display:none;
+    margin-top:20px;
+}
+
+.download-btn{
+    background:#28a745;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:6px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>REapp3</h2>
+    <p>Nhập mật khẩu để tải phần mềm</p>
+
+    <input type="password" id="pwd">
+
+    <br>
+
+    <button onclick="checkPassword()">
+        Xác nhận
+    </button>
+
+    <div id="download">
+        <h3>Truy cập thành công</h3>
+
+        <a class="download-btn"
+           href="REapp3.application">
+           Tải REapp3
+        </a>
+    </div>
+
+    <p id="msg" style="color:red;"></p>
+</div>
+
+<script>
+function checkPassword()
+{
+    const password =
+        document.getElementById("pwd").value;
+
+    if(password === "**********")
+    {
+        document.getElementById("download")
+            .style.display = "block";
+
+        document.getElementById("msg")
+            .textContent = "";
+    }
+    else
+    {
+        document.getElementById("msg")
+            .textContent = "Sai mật khẩu";
+    }
+}
+</script>
+
+</body>
+</html>
