@@ -23,6 +23,7 @@ The goal of REapp3 is to create an all-in-one desktop productivity and learning 
 - TurboLines
 - User1005
 ---
+# This application requires an account to work 
 # Features
 
 ## TimeTable
@@ -73,7 +74,7 @@ Task planning and execution tracking.
 
 ### Functions
 
-- Create tasks
+- Create tasks In CongViec1 
 - Mark tasks as completed
 - Dynamic Task Boxes
 - Import task lists
@@ -106,23 +107,15 @@ Monitor task completion progress.
 
 # Planned Features
 
-## Calendar View
 
-- Daily view
-- Weekly view
-- Monthly view
 
 ## Reminder System
 
 - Task reminders
-- Exam reminders
-- Study notifications
 
 ## Dark Mode
 
-- Light theme
-- Dark theme
-- Theme switching
+- We have NO dark mode 
 
 ## Statistics Dashboard
 
@@ -131,23 +124,7 @@ Monitor task completion progress.
 - Completed tasks
 - Performance charts
 
-## Auto Backup
 
-- Automatic backup
-- Restore previous data
-- Export backup packages
-
-## AI Assistant
-
-- Study recommendations
-- Schedule suggestions
-- Productivity analysis
-
-## Cloud Synchronization
-
-- OneDrive integration
-- Multi-device synchronization
-- Remote backups
 
 ---
 
@@ -168,18 +145,6 @@ Monitor task completion progress.
 - [ ] Reminder Center
 - [ ] Themes
 
-## Version 1.2
-
-- [ ] Statistics Dashboard
-- [ ] Achievement System
-- [ ] Auto Backup
-
-## Version 2.0
-
-- [ ] Cloud Sync
-- [ ] Plugin System
-- [ ] AI Assistant
-
 ---
 
 # Vision
@@ -188,8 +153,5 @@ REapp3 is designed to become a complete personal productivity platform that comb
 
 - Learning Management
 - Task Management
-- Time Scheduling
-- Progress Tracking
-- Smart Planning
 
 inside a single Windows application.
